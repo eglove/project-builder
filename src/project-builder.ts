@@ -18,6 +18,7 @@ type ProjectBuilderProperties = {
 
 export async function projectBuilder(
   projectName: string,
+  branch: string,
   {
     postVersionBumpScripts,
     preVersionBumpScripts,
@@ -36,6 +37,7 @@ export async function projectBuilder(
     return;
   }
 
+  await git.checkout(branch);
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
   await updatePeerDependencies();
   await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);

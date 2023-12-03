@@ -3,7 +3,7 @@ import { simpleGit } from 'simple-git';
 
 import { runCommand } from './run-command.ts';
 
-export async function publishProject(publishDirectory: string) {
+export async function publishProject(publishDirectory?: string) {
   const { semver } = await inquirer.prompt([
     {
       choices: ['patch', 'minor', 'major'],
@@ -15,5 +15,10 @@ export async function publishProject(publishDirectory: string) {
 
   runCommand(`npm version ${semver}`);
   await simpleGit().push();
-  runCommand(`cd ${publishDirectory} && npm publish --access public && cd..`);
+
+  if (publishDirectory === undefined) {
+    runCommand('npm publish --access public');
+  } else {
+    runCommand(`cd ${publishDirectory} && npm publish --access public && cd..`);
+  }
 }
