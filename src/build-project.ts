@@ -1,10 +1,11 @@
 import * as fs from 'node:fs';
 
+import { deepMerge } from '@ethang/util/object.js';
 import { rimraf } from 'rimraf';
 import tsup from 'tsup';
-import {runCommand} from "./run-command.js";
-import {deepMerge} from "@ethang/util/object.js";
-import {gitUpdate} from "./git-update.js";
+
+import { gitUpdate } from './git-update.ts';
+import { runCommand } from './run-command.ts';
 
 export async function buildProject(
   publishDirectory: string,
