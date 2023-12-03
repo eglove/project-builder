@@ -12,7 +12,9 @@ export async function updatePeerDependencies(
   const packageObject = JSON.parse(packageJson);
 
   // eslint-disable-next-line functional/immutable-data
-  packageObject.peerDependencies = packageObject.dependencies;
+  packageObject.peerDependencies = {
+    ...packageObject.peerDependencies,
+  };
 
   if (!isNil(ignorePeerDependencies)) {
     for (const ignorePeerDependency of ignorePeerDependencies) {
