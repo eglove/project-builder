@@ -46,6 +46,10 @@ export async function projectBuilder(
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
   await updatePeerDependencies(ignorePeerDependencies);
 
+  if (status.isClean()) {
+    return;
+  }
+
   if (isIgnoringBuild !== true) {
     if (isNil(tsupOptions)) {
       console.error('Provide tsupOptions!');
@@ -53,6 +57,10 @@ export async function projectBuilder(
     }
 
     await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
+  }
+
+  if (status.isClean()) {
+    return;
   }
 
   await publishProject(publishDirectory);
