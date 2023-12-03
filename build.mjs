@@ -42,7 +42,7 @@ packageJson.peerDependencies = packageJson.dependencies
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 
 if (status.isClean()) {
-  return
+  process.exit()
 }
 
 await git.add('.')
