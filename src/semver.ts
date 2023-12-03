@@ -6,12 +6,6 @@ import { simpleGit } from 'simple-git';
 import { runCommand } from './run-command.ts';
 
 export async function semver(publishDirectory: string) {
-  const status = await simpleGit().status();
-
-  if (status.isClean()) {
-    return;
-  }
-
   const { semver } = await inquirer.prompt([
     {
       choices: ['patch', 'minor', 'major', 'no-publish'],
