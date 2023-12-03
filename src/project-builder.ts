@@ -34,7 +34,7 @@ export async function projectBuilder(
     tsupOptions,
   }: ProjectBuilderProperties,
 ) {
-  console.info(chalk.white.bgBlue`Running for ${projectName}`);
+  console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
   const git = simpleGit();
   const status = await git.status();
