@@ -4,6 +4,9 @@ import tsup from 'tsup'
 import fs from 'node:fs'
 import inquirer from 'inquirer'
 import { simpleGit } from 'simple-git'
+import chalk from 'chalk'
+
+console.info(chalk.bgBlue.white('Running for project-builder'))
 
 const git = simpleGit()
 const status = await git.status()
