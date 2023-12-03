@@ -6,11 +6,11 @@ import inquirer from 'inquirer'
 import { simpleGit } from 'simple-git'
 
 const git = simpleGit()
-const status = await git.status();
+const status = await git.status()
 
 if (!status.isClean()) {
   console.error('Commit your changes!')
-  process.exit();
+  process.exit()
 }
 
 await rimraf('dist')
@@ -42,7 +42,7 @@ const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 packageJson.peerDependencies = packageJson.dependencies
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 
-const peerDepStatus = await git.status();
+const peerDepStatus = await git.status()
 if (!peerDepStatus.isClean()) {
   await git.add('.')
   await git.add('Peer Dependency Update')
@@ -57,7 +57,4 @@ if (semver !== 'no-publish') {
   execSync('cd dist && npm publish --access public && cd ..')
 }
 
-const finalStatus = await git.status();
-if (!finalStatus.isClean()) {
-  await git.push();
-}
+await git.push()
