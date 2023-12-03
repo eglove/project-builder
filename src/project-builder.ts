@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import { simpleGit } from 'simple-git';
 import type tsup from 'tsup';
 
 import { buildProject } from './build-project.ts';
@@ -26,6 +27,15 @@ export async function projectBuilder(
   }: ProjectBuilderProperties,
 ) {
   console.info(chalk.white.bgBlue`Running for ${projectName}`);
+
+  const git = simpleGit();
+  const status = await git.status();
+
+  if (!status.isClean()) {
+    console.error('Commit your changes!');
+    return;
+  }
+
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
   await updatePeerDependencies();
   await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);

@@ -2,10 +2,20 @@ import { rimraf } from 'rimraf'
 import { execSync } from 'child_process'
 import tsup from 'tsup'
 import fs from 'node:fs'
+import inquirer from 'inquirer'
+import { simpleGit } from 'simple-git'
 
-await rimraf('dist');
+const git = simpleGit()
+const status = await git.status();
 
-execSync('tsc --project tsconfig.json');
+if (!status.isClean()) {
+  console.error('Commit your changes!')
+  process.exit();
+}
+
+await rimraf('dist')
+
+execSync('tsc --project tsconfig.json')
 
 await tsup.build({
   bundle: true,
@@ -15,13 +25,25 @@ await tsup.build({
   entry: ['src/*'],
 })
 
-const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-packageJson.peerDependencies = packageJson.dependencies;
-fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8');
+const { semver } = await inquirer.prompt([
+  {
+    choices: ['patch', 'minor', 'major'],
+    message: 'SemVer',
+    name: 'semver',
+    type: 'list',
+  },
+])
+
+execSync(`npm version ${semver}`)
+
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+packageJson.peerDependencies = packageJson.dependencies
+fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 
 fs.copyFileSync(
   'package.json',
   'dist/package.json',
 )
 
+await simpleGit().push()
 execSync('cd dist && npm publish --access public && cd ..')
