@@ -55,5 +55,5 @@ export async function projectBuilder(
     await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
   }
 
-  await semver();
+  await semver(publishDirectory);
 }

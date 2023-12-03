@@ -1,9 +1,11 @@
+import fs from 'node:fs';
+
 import inquirer from 'inquirer';
 import { simpleGit } from 'simple-git';
 
 import { runCommand } from './run-command.ts';
 
-export async function semver() {
+export async function semver(publishDirectory: string) {
   const { semver } = await inquirer.prompt([
     {
       choices: ['patch', 'minor', 'major', 'no-publish'],
@@ -18,5 +20,13 @@ export async function semver() {
   }
 
   runCommand(`npm version ${semver}`);
+
+  if (publishDirectory === undefined) {
+    runCommand('npm publish --access public');
+  } else {
+    fs.copyFileSync('package.json', `${publishDirectory}/package.json`);
+    runCommand(`cd ${publishDirectory} && npm publish --access public && cd..`);
+  }
+
   await simpleGit().push();
 }
