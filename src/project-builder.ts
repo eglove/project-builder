@@ -10,6 +10,7 @@ import type { scripts } from './version-bump.ts';
 import { versionBump } from './version-bump.ts';
 
 type ProjectBuilderProperties = {
+  ignorePeerDependencies?: string[];
   isIgnoringBuild?: boolean;
   postVersionBumpScripts: Array<keyof typeof scripts>;
   preVersionBumpScripts: Array<keyof typeof scripts>;
@@ -23,6 +24,7 @@ export async function projectBuilder(
   branch: string,
   {
     isIgnoringBuild,
+    ignorePeerDependencies,
     postVersionBumpScripts,
     preVersionBumpScripts,
     publishDirectory,
@@ -42,7 +44,7 @@ export async function projectBuilder(
 
   await git.checkout(branch);
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
-  await updatePeerDependencies();
+  await updatePeerDependencies(ignorePeerDependencies);
 
   if (isIgnoringBuild !== true) {
     if (isNil(tsupOptions)) {
