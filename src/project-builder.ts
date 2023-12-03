@@ -1,3 +1,4 @@
+import { isNil } from '@ethang/util/data.js';
 import chalk from 'chalk';
 import { simpleGit } from 'simple-git';
 import type tsup from 'tsup';
@@ -14,7 +15,7 @@ type ProjectBuilderProperties = {
   preVersionBumpScripts: Array<keyof typeof scripts>;
   publishDirectory: string;
   tsConfigOverrides?: Record<string, unknown>;
-  tsupOptions: tsup.Options;
+  tsupOptions?: tsup.Options;
 };
 
 export async function projectBuilder(
@@ -44,6 +45,11 @@ export async function projectBuilder(
   await updatePeerDependencies();
 
   if (isIgnoringBuild !== true) {
+    if (isNil(tsupOptions)) {
+      console.error('Provide tsupOptions!');
+      return;
+    }
+
     await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
   }
 
