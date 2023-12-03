@@ -4,7 +4,7 @@ import { simpleGit } from 'simple-git';
 import type tsup from 'tsup';
 
 import { buildProject } from './build-project.ts';
-import { publishProject } from './publish-project.ts';
+import { semver } from './semver.ts';
 import { updatePeerDependencies } from './update-peer-dependencies.ts';
 import type { scripts } from './version-bump.ts';
 import { versionBump } from './version-bump.ts';
@@ -55,5 +55,5 @@ export async function projectBuilder(
     await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
   }
 
-  await publishProject(publishDirectory);
+  await semver();
 }
