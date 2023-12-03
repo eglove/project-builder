@@ -55,4 +55,6 @@ fs.copyFileSync(
   'dist/package.json',
 )
 
-execSync('cd dist && npm publish --access public && cd ..')
+if (semver !== 'no-publish') {
+  execSync('cd dist && npm publish --access public && cd ..')
+}
