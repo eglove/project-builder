@@ -6,12 +6,16 @@ import { runCommand } from './run-command.ts';
 export async function publishProject(publishDirectory?: string) {
   const { semver } = await inquirer.prompt([
     {
-      choices: ['patch', 'minor', 'major'],
+      choices: ['patch', 'minor', 'major', 'no-publish'],
       message: 'SemVer',
       name: 'semver',
       type: 'list',
     },
   ]);
+
+  if (semver === 'no-publish') {
+    return;
+  }
 
   runCommand(`npm version ${semver}`);
   await simpleGit().push();
