@@ -6,7 +6,6 @@ await projectBuilder('project-builder', 'master', {
   publishDirectory: 'dist',
   tsupOptions: {
     outDir: 'dist',
-    entry: ['src/*'],
-    format: ['cjs', 'esm']
+    entry: ['src/*']
   }
 })
