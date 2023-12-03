@@ -13,7 +13,7 @@ export async function updatePeerDependencies(
 
   // eslint-disable-next-line functional/immutable-data
   packageObject.peerDependencies = {
-    ...packageObject.peerDependencies,
+    ...packageObject.dependencies,
   };
 
   if (!isNil(ignorePeerDependencies)) {
