@@ -6,7 +6,7 @@ import inquirer from 'inquirer'
 import { simpleGit } from 'simple-git'
 
 const git = simpleGit()
-const status = await git.status()
+let status = await git.status()
 
 if (!status.isClean()) {
   console.error('Commit your changes!')
@@ -41,6 +41,7 @@ const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 packageJson.peerDependencies = packageJson.dependencies
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 
+status = await git.status();
 if (status.isClean()) {
   process.exit()
 }
