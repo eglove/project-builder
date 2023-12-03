@@ -6,11 +6,11 @@ import inquirer from 'inquirer'
 import { simpleGit } from 'simple-git'
 
 const git = simpleGit()
-let status = await git.status()
+const status = await git.status();
 
 if (!status.isClean()) {
   console.error('Commit your changes!')
-  process.exit()
+  process.exit();
 }
 
 await rimraf('dist')
@@ -27,32 +27,32 @@ await tsup.build({
 
 const { semver } = await inquirer.prompt([
   {
-    choices: ['patch', 'minor', 'major'],
+    choices: ['patch', 'minor', 'major', 'no-publish'],
     message: 'SemVer',
     name: 'semver',
     type: 'list',
   },
 ])
 
-execSync(`npm version ${semver}`)
+if (semver !== 'no-publish') {
+  execSync(`npm version ${semver}`)
+  await git.push()
+}
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 packageJson.peerDependencies = packageJson.dependencies
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
 
-status = await git.status();
-if (status.isClean()) {
-  process.exit()
+const peerDepStatus = await git.status();
+if (!peerDepStatus.isClean()) {
+  await git.add('.')
+  await git.add('Peer Dependency Update')
+  await git.push()
 }
-
-await git.add('.')
-await git.add('Peer Dependency Update')
-await git.push()
 
 fs.copyFileSync(
   'package.json',
   'dist/package.json',
 )
 
-await git.push();
 execSync('cd dist && npm publish --access public && cd ..')
