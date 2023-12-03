@@ -35,15 +35,21 @@ const { semver } = await inquirer.prompt([
 ])
 
 execSync(`npm version ${semver}`)
+await git.push()
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 packageJson.peerDependencies = packageJson.dependencies
 fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf8')
+
+if (!status.isClean()) {
+  await git.add('.')
+  await git.add('Peer Dependency Update')
+  await git.push()
+}
 
 fs.copyFileSync(
   'package.json',
   'dist/package.json',
 )
 
-await simpleGit().push()
 execSync('cd dist && npm publish --access public && cd ..')
