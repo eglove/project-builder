@@ -36,7 +36,6 @@ const { semver } = await inquirer.prompt([
 
 if (semver !== 'no-publish') {
   execSync(`npm version ${semver}`)
-  await git.push()
 }
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
@@ -47,7 +46,6 @@ const peerDepStatus = await git.status();
 if (!peerDepStatus.isClean()) {
   await git.add('.')
   await git.add('Peer Dependency Update')
-  await git.push()
 }
 
 fs.copyFileSync(
@@ -57,4 +55,9 @@ fs.copyFileSync(
 
 if (semver !== 'no-publish') {
   execSync('cd dist && npm publish --access public && cd ..')
+}
+
+const finalStatus = await git.status();
+if (!finalStatus.isClean()) {
+  await git.push();
 }
