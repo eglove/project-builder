@@ -60,6 +60,4 @@ export async function projectBuilder(
     await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     await semver(publishDirectory);
   }
-
-  await simpleGit().push();
 }
