@@ -51,13 +51,12 @@ export async function projectBuilder(
       return;
     }
 
-    if (isNil(publishDirectory)) {
-      console.error('Provide publish directory!');
-      return;
+    await updatePeerDependencies(ignorePeerDependencies);
+
+    if (!isNil(publishDirectory)) {
+      await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     }
 
-    await updatePeerDependencies(ignorePeerDependencies);
-    await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     await semver(publishDirectory);
   }
 }
