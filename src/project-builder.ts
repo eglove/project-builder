@@ -46,14 +46,9 @@ export async function projectBuilder(
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
 
   if (isLibrary === true) {
-    if (isNil(tsupOptions)) {
-      console.error('Provide tsupOptions!');
-      return;
-    }
-
     await updatePeerDependencies(ignorePeerDependencies);
 
-    if (!isNil(publishDirectory)) {
+    if (!isNil(publishDirectory) && !isNil(tsupOptions)) {
       await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     }
 

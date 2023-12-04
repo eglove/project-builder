@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 
+import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { simpleGit } from 'simple-git';
 
@@ -12,6 +13,7 @@ export async function semver(publishDirectory?: string) {
     return;
   }
 
+  console.info(chalk.bgRed.white(`Publishing dir ${publishDirectory}`));
   const { semver } = await inquirer.prompt([
     {
       choices: ['patch', 'minor', 'major', 'no-publish'],
