@@ -33,6 +33,4 @@ export async function semver(publishDirectory: string) {
     fs.copyFileSync('package.json', `${publishDirectory}/package.json`);
     runCommand(`cd ${publishDirectory} && npm publish --access public && cd..`);
   }
-
-  await simpleGit().push();
 }
