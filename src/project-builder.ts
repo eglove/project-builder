@@ -11,11 +11,10 @@ import { versionBump } from './version-bump.ts';
 
 type ProjectBuilderProperties = {
   ignorePeerDependencies?: string[];
-  isIgnoringBuild?: boolean;
-  isIgnoringPeerDependencies?: boolean;
+  isLibrary?: boolean;
   postVersionBumpScripts: Array<keyof typeof scripts>;
   preVersionBumpScripts: Array<keyof typeof scripts>;
-  publishDirectory: string;
+  publishDirectory?: string;
   tsConfigOverrides?: Record<string, unknown>;
   tsupOptions?: tsup.Options;
 };
@@ -24,8 +23,7 @@ export async function projectBuilder(
   projectName: string,
   branch: string,
   {
-    isIgnoringBuild,
-    isIgnoringPeerDependencies,
+    isLibrary,
     ignorePeerDependencies,
     postVersionBumpScripts,
     preVersionBumpScripts,
@@ -47,18 +45,19 @@ export async function projectBuilder(
   await git.checkout(branch);
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
 
-  if (isIgnoringPeerDependencies !== true) {
-    await updatePeerDependencies(ignorePeerDependencies);
-  }
-
-  if (isIgnoringBuild !== true) {
+  if (isLibrary === true) {
     if (isNil(tsupOptions)) {
       console.error('Provide tsupOptions!');
       return;
     }
 
-    await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
-  }
+    if (isNil(publishDirectory)) {
+      console.error('Provide publish directory!');
+      return;
+    }
 
-  await semver(publishDirectory);
+    await updatePeerDependencies(ignorePeerDependencies);
+    await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
+    await semver(publishDirectory);
+  }
 }
