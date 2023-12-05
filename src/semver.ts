@@ -3,19 +3,10 @@ import fs from 'node:fs';
 import { isNil } from '@ethang/util/data.js';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { simpleGit } from 'simple-git';
 
 import { runCommand } from './run-command.ts';
 
-export async function semver(branch: string, publishDirectory?: string) {
-  const diffSummary = await simpleGit()
-    .fetch()
-    .diffSummary([`origin/${branch}`]);
-
-  if (diffSummary.changed <= 0) {
-    return;
-  }
-
+export async function semver(publishDirectory?: string) {
   console.info(
     chalk.bgRed.white(
       `Publishing dir: ${isNil(publishDirectory) ? '.' : publishDirectory}`,
