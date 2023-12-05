@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import { simpleGit } from 'simple-git';
 
 export async function gitUpdate(commitMessage: string) {
@@ -7,6 +8,7 @@ export async function gitUpdate(commitMessage: string) {
     return;
   }
 
+  console.info(chalk.greenBright(`Committing: ${commitMessage}`));
   await simpleGit().add('.');
   await simpleGit().commit(commitMessage);
 }
