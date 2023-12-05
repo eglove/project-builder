@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 
+import { isNil } from '@ethang/util/data.js';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { simpleGit } from 'simple-git';
@@ -15,7 +16,11 @@ export async function semver(branch: string, publishDirectory?: string) {
     return;
   }
 
-  console.info(chalk.bgRed.white(`Publishing dir ${publishDirectory}`));
+  console.info(
+    chalk.bgRed.white(
+      `Publishing dir: ${isNil(publishDirectory) ? '.' : publishDirectory}`,
+    ),
+  );
   const { semver } = await inquirer.prompt([
     {
       choices: ['patch', 'minor', 'major', 'no-publish'],
@@ -35,6 +40,8 @@ export async function semver(branch: string, publishDirectory?: string) {
     runCommand('npm publish --access public');
   } else {
     fs.copyFileSync('package.json', `${publishDirectory}/package.json`);
-    runCommand(`cd ${publishDirectory} && npm publish --access public && cd..`);
+    runCommand(
+      `cd ${publishDirectory} && npm publish --access public && cd ..`,
+    );
   }
 }
