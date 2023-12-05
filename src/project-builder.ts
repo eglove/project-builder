@@ -53,9 +53,9 @@ export async function projectBuilder(
     }
 
     await semver(branch, publishDirectory);
-
-    await simpleGit().push();
-    const remote = await simpleGit().listRemote(['--get-url']);
-    console.info(chalk.blueBright(`Pushed to ${remote}`));
   }
+
+  await simpleGit().push();
+  const remote = await simpleGit().listRemote(['--get-url']);
+  console.info(chalk.blueBright(remote));
 }
