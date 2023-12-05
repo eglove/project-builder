@@ -52,7 +52,7 @@ export async function projectBuilder(
       await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     }
 
-    await semver(publishDirectory);
+    await semver(branch, publishDirectory);
 
     await simpleGit().push();
     const remote = await simpleGit().listRemote(['--get-url']);

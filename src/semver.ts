@@ -6,10 +6,12 @@ import { simpleGit } from 'simple-git';
 
 import { runCommand } from './run-command.ts';
 
-export async function semver(publishDirectory?: string) {
-  const status = await simpleGit().status();
+export async function semver(branch: string, publishDirectory?: string) {
+  const diffSummary = await simpleGit()
+    .fetch()
+    .diffSummary([`origin/${branch}`]);
 
-  if (status.isClean()) {
+  if (diffSummary.changed <= 0) {
     return;
   }
 
