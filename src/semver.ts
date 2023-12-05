@@ -28,7 +28,6 @@ export async function semver(publishDirectory?: string) {
   }
 
   runCommand(`npm version ${semver}`);
-  await simpleGit().push();
 
   if (publishDirectory === undefined) {
     runCommand('npm publish --access public');

@@ -1,4 +1,3 @@
-import chalk from 'chalk';
 import { simpleGit } from 'simple-git';
 
 export async function gitUpdate(commitMessage: string) {
@@ -10,7 +9,4 @@ export async function gitUpdate(commitMessage: string) {
 
   await simpleGit().add('.');
   await simpleGit().commit(commitMessage);
-  await simpleGit().push();
-  const remote = await simpleGit().listRemote(['--get-url']);
-  console.info(chalk.blueBright(`Pushed to ${remote}`));
 }
