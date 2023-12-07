@@ -17,7 +17,7 @@
     }
   },
   "dependencies": {
-    "@ethang/util": "^2.0.21",
+    "@ethang/util": "^2.0.22",
     "chalk": "^5.3.0",
     "inquirer": "^9.2.12",
     "rimraf": "^5.0.5",
@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.10.3",
-    "eslint-config-ethang": "^11.5.17"
+    "@types/node": "^20.10.4",
+    "eslint-config-ethang": "^11.5.18"
   },
   "peerDependencies": {
     "@ethang/util": "^2.0.21",
