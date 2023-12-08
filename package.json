@@ -31,7 +31,7 @@
     "eslint-config-ethang": "^11.5.19"
   },
   "peerDependencies": {
-    "@ethang/util": "^2.0.22",
+    "@ethang/util": "^2.0.23",
     "chalk": "^5.3.0",
     "inquirer": "^9.2.12",
     "rimraf": "^5.0.5",
