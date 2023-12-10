@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@ethang/util':
-    specifier: ^2.0.24
-    version: 2.0.24
+    specifier: ^3.0.0
+    version: 3.0.0
   chalk:
     specifier: ^5.3.0
     version: 5.3.0
@@ -318,8 +318,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@ethang/util@2.0.24:
-    resolution: {integrity: sha512-KLjZrefBeun8q5W0jLWBFcyMJ1M7b0O1tefj5tzjhlh74HX1ApeqcFTqhGZ7HLc0L/1OClzQrIN0qx5ABW3whw==}
+  /@ethang/util@3.0.0:
+    resolution: {integrity: sha512-lQkJ7qQHHEJU4xMM4fmMLMfoWk+Ns7dgAfIKHAgOmrRf5Zqg6oDMsYTAIncuBONDzzPQbA034CTEPm1jRreI9w==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:
