@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@ethang/util':
-    specifier: ^3.0.0
-    version: 3.0.0
+    specifier: ^3.1.0
+    version: 3.1.0
   chalk:
     specifier: ^5.3.0
     version: 5.3.0
@@ -76,8 +76,8 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /@babel/runtime@7.23.5:
-    resolution: {integrity: sha512-NdUTHcPe4C99WxPub+K9l9tK5/lV4UXIoaHSYgzco9BCyjKAAwzdBI+wWtYqHt7LJdbo74ZjRPJgzVweq1sz0w==}
+  /@babel/runtime@7.23.6:
+    resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
@@ -318,8 +318,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@ethang/util@3.0.0:
-    resolution: {integrity: sha512-lQkJ7qQHHEJU4xMM4fmMLMfoWk+Ns7dgAfIKHAgOmrRf5Zqg6oDMsYTAIncuBONDzzPQbA034CTEPm1jRreI9w==}
+  /@ethang/util@3.1.0:
+    resolution: {integrity: sha512-57E07pj+BYOMARkKK5APyOXSBuJ5khuMlxpnwj99Ui+DYPvHSppGwsUayUXO3g1N/BuQhPM7E6d/hXwyR6dVaQ==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:
@@ -1731,7 +1731,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.23.6
       aria-query: 5.3.0
       array-includes: 3.1.7
       array.prototype.flatmap: 1.3.2
