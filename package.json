@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.5",
     "eslint-config-ethang": "^11.6.1"
   },
   "peerDependencies": {
