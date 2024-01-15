@@ -12,7 +12,7 @@ export async function semver(publishDirectory?: string) {
       `Publishing dir: ${isNil(publishDirectory) ? '.' : publishDirectory}`,
     ),
   );
-  const { semver } = await inquirer.prompt([
+  const { semver } = await inquirer.prompt<{ semver: string }>([
     {
       choices: ['patch', 'minor', 'major', 'no-publish'],
       message: 'SemVer',

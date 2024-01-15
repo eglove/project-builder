@@ -9,7 +9,10 @@ export async function updatePeerDependencies(
 ) {
   const packageJson = fs.readFileSync('package.json', { encoding: 'utf8' });
 
-  const packageObject = JSON.parse(packageJson);
+  const packageObject = JSON.parse(packageJson) as {
+    dependencies: Record<string, unknown>;
+    peerDependencies: Record<string, unknown>;
+  };
 
   // eslint-disable-next-line functional/immutable-data
   packageObject.peerDependencies = {

@@ -20,7 +20,9 @@ export async function buildProject(
     const tsConfigString = fs.readFileSync('tsconfig.json', {
       encoding: 'utf8',
     });
-    const originalTsConfig = JSON.parse(tsConfigString);
+    const originalTsConfig = JSON.parse(
+      tsConfigString,
+    ) as typeof tsConfigOverrides;
 
     const merged = deepMerge(originalTsConfig, tsConfigOverrides);
     fs.writeFileSync('tsconfig.build.json', JSON.stringify(merged, null, 2));
