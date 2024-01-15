@@ -14,14 +14,13 @@ export async function updatePeerDependencies(
     peerDependencies: Record<string, unknown>;
   };
 
-  // eslint-disable-next-line functional/immutable-data
   packageObject.peerDependencies = {
     ...packageObject.dependencies,
   };
 
   if (!isNil(ignorePeerDependencies)) {
     for (const ignorePeerDependency of ignorePeerDependencies) {
-      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete,functional/immutable-data
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete packageObject.peerDependencies[ignorePeerDependency];
     }
   }
