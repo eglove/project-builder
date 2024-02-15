@@ -27,7 +27,7 @@ export async function updatePeerDependencies(
 
   fs.writeFileSync(
     'package.json',
-    JSON.stringify(packageObject, null, 2) + '\n',
+    `${JSON.stringify(packageObject, null, 2)}\n`,
     'utf8',
   );
 

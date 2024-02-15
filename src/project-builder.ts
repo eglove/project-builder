@@ -6,15 +6,14 @@ import type tsup from 'tsup';
 import { buildProject } from './build-project.ts';
 import { semver } from './semver.ts';
 import { updatePeerDependencies } from './update-peer-dependencies.ts';
-import { getHasChanges } from './util.ts';
 import type { scripts } from './version-bump.ts';
 import { versionBump } from './version-bump.ts';
 
 type ProjectBuilderProperties = {
   ignorePeerDependencies?: string[];
   isLibrary?: boolean;
-  postVersionBumpScripts: Array<keyof typeof scripts>;
-  preVersionBumpScripts: Array<keyof typeof scripts>;
+  postVersionBumpScripts: (keyof typeof scripts)[];
+  preVersionBumpScripts: (keyof typeof scripts)[];
   publishDirectory?: string;
   tsConfigOverrides?: Record<string, unknown>;
   tsupOptions?: tsup.Options;
@@ -49,17 +48,11 @@ export async function projectBuilder(
   if (isLibrary === true) {
     await updatePeerDependencies(ignorePeerDependencies);
 
-    if (
-      (await getHasChanges(branch)) &&
-      !isNil(publishDirectory) &&
-      !isNil(tsupOptions)
-    ) {
+    if (!isNil(publishDirectory) && !isNil(tsupOptions)) {
       await buildProject(publishDirectory, tsupOptions, tsConfigOverrides);
     }
 
-    if (await getHasChanges(branch)) {
-      await semver(publishDirectory);
-    }
+    await semver(publishDirectory);
   }
 
   await simpleGit().push();
