@@ -1,5 +1,3 @@
-import { simpleGit } from 'simple-git';
-
 import { gitUpdate } from './git-update.ts';
 import { runCommand } from './run-command.ts';
 
@@ -22,12 +20,6 @@ export async function versionBump(
     for (const dependencyScript of preVersionBumpScripts) {
       runCommand(scripts[dependencyScript]);
     }
-  }
-
-  const status = await simpleGit().status();
-
-  if (status.isClean()) {
-    return;
   }
 
   if (postVersionBumpScripts.length > 0) {
