@@ -13,7 +13,8 @@
   "eslintConfig": {
     "extends": "ethang",
     "rules": {
-      "unicorn/prefer-json-parse-buffer": "off"
+      "unicorn/prefer-json-parse-buffer": "off",
+      "no-console": "off"
     }
   },
   "dependencies": {
@@ -28,7 +29,7 @@
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.11.19",
-    "eslint-config-ethang": "^14.0.4"
+    "eslint-config-ethang": "^14.0.8"
   },
   "peerDependencies": {
     "@ethang/util": "^3.1.1",

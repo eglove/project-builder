@@ -15,8 +15,8 @@ export const scripts = {
 };
 
 export async function versionBump(
-  preVersionBumpScripts: Array<keyof typeof scripts>,
-  postVersionBumpScripts: Array<keyof typeof scripts>,
+  preVersionBumpScripts: (keyof typeof scripts)[],
+  postVersionBumpScripts: (keyof typeof scripts)[],
 ) {
   if (preVersionBumpScripts.length > 0) {
     for (const dependencyScript of preVersionBumpScripts) {
