@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.11.30",
-    "eslint-config-ethang": "^14.1.5"
+    "@types/node": "^20.12.2",
+    "eslint-config-ethang": "^14.1.6"
   },
   "peerDependencies": {
     "@ethang/util": "^3.1.1",
