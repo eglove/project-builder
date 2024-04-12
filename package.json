@@ -38,6 +38,6 @@
     "rimraf": "^5.0.5",
     "simple-git": "^3.24.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   }
 }
