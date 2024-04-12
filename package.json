@@ -24,12 +24,12 @@
     "rimraf": "^5.0.5",
     "simple-git": "^3.24.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.12.6",
-    "eslint-config-ethang": "^14.1.6"
+    "@types/node": "^20.12.7",
+    "eslint-config-ethang": "^14.1.7"
   },
   "peerDependencies": {
     "@ethang/util": "^3.1.1",
