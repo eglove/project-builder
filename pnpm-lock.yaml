@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^20.12.7
     version: 20.12.7
   eslint-config-ethang:
-    specifier: ^14.1.7
-    version: 14.1.7(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-prettier@5.1.3)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint-plugin-simple-import-sort@12.1.0)(eslint-plugin-sort-keys-fix@1.1.2)(eslint-plugin-tailwindcss@3.15.1)(eslint-plugin-typescript-sort-keys@3.2.0)(eslint-plugin-unicorn@51.0.1)(eslint-plugin-unused-imports@3.1.0)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.5)
+    specifier: ^14.1.8
+    version: 14.1.8(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-prettier@5.1.3)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint-plugin-simple-import-sort@12.1.0)(eslint-plugin-sort-keys-fix@1.1.2)(eslint-plugin-tailwindcss@3.15.1)(eslint-plugin-typescript-sort-keys@3.2.0)(eslint-plugin-unicorn@51.0.1)(eslint-plugin-unused-imports@3.1.0)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.5)
 
 packages:
 
@@ -1537,8 +1537,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-ethang@14.1.7(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-prettier@5.1.3)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint-plugin-simple-import-sort@12.1.0)(eslint-plugin-sort-keys-fix@1.1.2)(eslint-plugin-tailwindcss@3.15.1)(eslint-plugin-typescript-sort-keys@3.2.0)(eslint-plugin-unicorn@51.0.1)(eslint-plugin-unused-imports@3.1.0)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.5):
-    resolution: {integrity: sha512-dcv5rOTN5TvnUhYWFq4Iz9RkUlW+3OFnNKJjBmR5H4/1XOJ19x3IVrR2uU4gydATUEXlalklSRAmmfodlO3UJw==}
+  /eslint-config-ethang@14.1.8(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-prettier@5.1.3)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint-plugin-simple-import-sort@12.1.0)(eslint-plugin-sort-keys-fix@1.1.2)(eslint-plugin-tailwindcss@3.15.1)(eslint-plugin-typescript-sort-keys@3.2.0)(eslint-plugin-unicorn@51.0.1)(eslint-plugin-unused-imports@3.1.0)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.5):
+    resolution: {integrity: sha512-3HctCmfXf7IF3byaL2muLY+EVktKP7qDFZnR439/HWGIn9shCDXowGLHqZBXmEmgYvbrnU884NN2w1Be5ESN5Q==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^7.6.0
       '@typescript-eslint/parser': ^7.6.0
@@ -1549,14 +1549,14 @@ packages:
       eslint-plugin-prettier: ^5.1.3
       eslint-plugin-react: 7.34.1
       eslint-plugin-react-hooks: ^4.6.0
-      eslint-plugin-simple-import-sort: ^12.0.0
+      eslint-plugin-simple-import-sort: ^12.1.0
       eslint-plugin-sort-keys-fix: ^1.1.2
       eslint-plugin-tailwindcss: ^3.15.1
       eslint-plugin-typescript-sort-keys: ^3.2.0
       eslint-plugin-unicorn: ^51.0.1
       eslint-plugin-unused-imports: ^3.1.0
       prettier: ^3.2.5
-      typescript: ^5.4.4
+      typescript: ^5.4.5
     dependencies:
       '@rushstack/eslint-patch': 1.10.2
       '@typescript-eslint/eslint-plugin': 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
