@@ -4,7 +4,6 @@ import { simpleGit } from 'simple-git';
 import type tsup from 'tsup';
 
 import { buildProject } from './build-project.ts';
-import { runCommand } from './run-command.ts';
 import { semver } from './semver.ts';
 import { updatePeerDependencies } from './update-peer-dependencies.ts';
 import type { scripts } from './version-bump.ts';
@@ -55,8 +54,6 @@ export async function projectBuilder(
 
     await semver(publishDirectory);
   }
-
-  runCommand('pnpm store prune');
 
   await simpleGit().push();
   const remote = await simpleGit().listRemote(['--get-url']);
