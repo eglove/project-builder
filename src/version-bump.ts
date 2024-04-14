@@ -5,7 +5,6 @@ export const scripts = {
   BUILD: 'pnpm build',
   DEDUPE: 'pnpm dedupe',
   LINT: 'pnpm lint',
-  PRUNE: 'pnpm prune',
   TEST: 'pnpm test',
   TURBO_CLEAN: 'turbo daemon clean',
   UPDATE: 'pnpm up -i --latest',
