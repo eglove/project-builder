@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 
-import { isNil } from '@ethang/util/data.js';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
+import isNil from 'lodash/isNil.js';
 
 import { runCommand } from './run-command.ts';
 

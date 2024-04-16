@@ -18,9 +18,9 @@
     }
   },
   "dependencies": {
-    "@ethang/util": "^3.1.1",
     "chalk": "^5.3.0",
-    "inquirer": "^9.2.18",
+    "inquirer": "^9.2.19",
+    "lodash": "^4.17.21",
     "rimraf": "^5.0.5",
     "simple-git": "^3.24.0",
     "tsup": "^8.0.2",
@@ -28,11 +28,12 @@
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
+    "@types/lodash": "^4.17.0",
     "@types/node": "^20.12.7",
-    "eslint-config-ethang": "^14.1.8"
+    "eslint": "8",
+    "eslint-config-ethang": "^14.1.9"
   },
   "peerDependencies": {
-    "@ethang/util": "^3.1.1",
     "chalk": "^5.3.0",
     "inquirer": "^9.2.18",
     "rimraf": "^5.0.5",

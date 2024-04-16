@@ -1,5 +1,5 @@
-import { isNil } from '@ethang/util/data.js';
 import chalk from 'chalk';
+import isNil from 'lodash/isNil.js';
 import { simpleGit } from 'simple-git';
 import type tsup from 'tsup';
 

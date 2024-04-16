@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 
-import { isNil } from '@ethang/util/data.js';
+import isNil from 'lodash/isNil.js';
 
 import { gitUpdate } from './git-update.ts';
 
