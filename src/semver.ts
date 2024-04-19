@@ -1,38 +1,38 @@
-import fs from 'node:fs';
+import fs from "node:fs";
 
-import chalk from 'chalk';
-import inquirer from 'inquirer';
-import isNil from 'lodash/isNil.js';
+import chalk from "chalk";
+import inquirer from "inquirer";
+import isNil from "lodash/isNil.js";
 
-import { runCommand } from './run-command.ts';
+import { runCommand } from "./run-command.ts";
 
-export async function semver(publishDirectory?: string) {
+export const semver = async (publishDirectory?: string) => {
   console.info(
     chalk.bgRed.white(
-      `Publishing dir: ${isNil(publishDirectory) ? '.' : publishDirectory}`,
+      `Publishing dir: ${isNil(publishDirectory) ? "." : publishDirectory}`,
     ),
   );
-  const { semver } = await inquirer.prompt<{ semver: string }>([
+  const { choice } = await inquirer.prompt<{ choice: string }>([
     {
-      choices: ['patch', 'minor', 'major', 'no-publish'],
-      message: 'SemVer',
-      name: 'semver',
-      type: 'list',
+      choices: ["patch", "minor", "major", "no-publish"],
+      message: "SemVer",
+      name: "choice",
+      type: "list",
     },
   ]);
 
-  if (semver === 'no-publish') {
+  if (choice === "no-publish") {
     return;
   }
 
-  runCommand(`npm version ${semver}`);
+  runCommand(`npm version ${choice}`);
 
   if (isNil(publishDirectory)) {
-    runCommand('npm publish --access public');
+    runCommand("npm publish --access public");
   } else {
-    fs.copyFileSync('package.json', `${publishDirectory}/package.json`);
+    fs.copyFileSync("package.json", `${publishDirectory}/package.json`);
     runCommand(
       `cd ${publishDirectory} && npm publish --access public && cd ..`,
     );
   }
-}
+};

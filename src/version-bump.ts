@@ -1,20 +1,20 @@
-import { gitUpdate } from './git-update.ts';
-import { runCommand } from './run-command.ts';
+import { gitUpdate } from "./git-update.ts";
+import { runCommand } from "./run-command.ts";
 
 export const scripts = {
-  BUILD: 'pnpm build',
-  DEDUPE: 'pnpm dedupe',
-  LINT: 'pnpm lint',
-  TEST: 'pnpm test',
-  TURBO_CLEAN: 'turbo daemon clean',
-  UPDATE: 'pnpm up -i --latest',
-  UPDATE_RECURSIVE: 'pnpm up -i -r --latest',
+  BUILD: "pnpm build",
+  DEDUPE: "pnpm dedupe",
+  LINT: "pnpm lint",
+  TEST: "pnpm test",
+  TURBO_CLEAN: "turbo daemon clean",
+  UPDATE: "pnpm up -i --latest",
+  UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
-export async function versionBump(
-  preVersionBumpScripts: (keyof typeof scripts)[],
-  postVersionBumpScripts: (keyof typeof scripts)[],
-) {
+export const versionBump = async (
+  preVersionBumpScripts: readonly (keyof typeof scripts)[],
+  postVersionBumpScripts: readonly (keyof typeof scripts)[],
+) => {
   if (preVersionBumpScripts.length > 0) {
     for (const dependencyScript of preVersionBumpScripts) {
       runCommand(scripts[dependencyScript]);
@@ -27,5 +27,5 @@ export async function versionBump(
     }
   }
 
-  await gitUpdate('Version Bump');
-}
+  await gitUpdate("Version Bump");
+};

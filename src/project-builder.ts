@@ -1,15 +1,16 @@
-import chalk from 'chalk';
-import isNil from 'lodash/isNil.js';
-import { simpleGit } from 'simple-git';
-import type tsup from 'tsup';
+import chalk from "chalk";
+import isNil from "lodash/isNil.js";
+import { simpleGit } from "simple-git";
+import type tsup from "tsup";
+import type { ReadonlyDeep } from "type-fest";
 
-import { buildProject } from './build-project.ts';
-import { semver } from './semver.ts';
-import { updatePeerDependencies } from './update-peer-dependencies.ts';
-import type { scripts } from './version-bump.ts';
-import { versionBump } from './version-bump.ts';
+import { buildProject } from "./build-project.ts";
+import { semver } from "./semver.ts";
+import { updatePeerDependencies } from "./update-peer-dependencies.ts";
+import type { scripts } from "./version-bump.ts";
+import { versionBump } from "./version-bump.ts";
 
-type ProjectBuilderProperties = {
+type ProjectBuilderProperties = ReadonlyDeep<{
   ignorePeerDependencies?: string[];
   isLibrary?: boolean;
   postVersionBumpScripts: (keyof typeof scripts)[];
@@ -17,12 +18,16 @@ type ProjectBuilderProperties = {
   publishDirectory?: string;
   tsConfigOverrides?: Record<string, unknown>;
   tsupOptions?: tsup.Options;
-};
+}>;
 
-export async function projectBuilder(
-  projectName: string,
-  branch: string,
-  {
+// eslint-disable-next-line max-statements
+export const projectBuilder = async (
+  projectName: Readonly<string>,
+  branch: Readonly<string>,
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+  options: ProjectBuilderProperties,
+) => {
+  const {
     isLibrary,
     ignorePeerDependencies,
     postVersionBumpScripts,
@@ -30,15 +35,15 @@ export async function projectBuilder(
     publishDirectory,
     tsConfigOverrides,
     tsupOptions,
-  }: ProjectBuilderProperties,
-) {
+  } = options;
+
   console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
   const git = simpleGit();
   const status = await git.status();
 
   if (!status.isClean()) {
-    console.error('Commit your changes!');
+    console.error("Commit your changes!");
     return;
   }
 
@@ -56,6 +61,6 @@ export async function projectBuilder(
   }
 
   await simpleGit().push();
-  const remote = await simpleGit().listRemote(['--get-url']);
+  const remote = await simpleGit().listRemote(["--get-url"]);
   console.info(chalk.blueBright(remote));
-}
+};

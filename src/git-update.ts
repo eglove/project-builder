@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import { simpleGit } from 'simple-git';
+import chalk from "chalk";
+import { simpleGit } from "simple-git";
 
-export async function gitUpdate(commitMessage: string) {
+export const gitUpdate = async (commitMessage: string) => {
   const status = await simpleGit().status();
 
   if (status.isClean()) {
@@ -9,6 +9,6 @@ export async function gitUpdate(commitMessage: string) {
   }
 
   console.info(chalk.greenBright(`Committing: ${commitMessage}`));
-  await simpleGit().add('.');
+  await simpleGit().add(".");
   await simpleGit().commit(commitMessage);
-}
+};

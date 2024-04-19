@@ -1,13 +1,13 @@
-import * as fs from 'node:fs';
+import * as fs from "node:fs";
 
-import isNil from 'lodash/isNil.js';
+import isNil from "lodash/isNil.js";
 
-import { gitUpdate } from './git-update.ts';
+import { gitUpdate } from "./git-update.ts";
 
-export async function updatePeerDependencies(
-  ignorePeerDependencies?: string[],
-) {
-  const packageJson = fs.readFileSync('package.json', { encoding: 'utf8' });
+export const updatePeerDependencies = async (
+  ignorePeerDependencies?: readonly string[],
+) => {
+  const packageJson = fs.readFileSync("package.json", { encoding: "utf8" });
 
   const packageObject = JSON.parse(packageJson) as {
     dependencies: Record<string, unknown>;
@@ -26,10 +26,10 @@ export async function updatePeerDependencies(
   }
 
   fs.writeFileSync(
-    'package.json',
+    "package.json",
     `${JSON.stringify(packageObject, null, 2)}\n`,
-    'utf8',
+    "utf8",
   );
 
-  await gitUpdate('Peer Dependency Update');
-}
+  await gitUpdate("Peer Dependency Update");
+};
