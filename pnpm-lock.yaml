@@ -31,8 +31,8 @@ importers:
         version: 5.4.5
     devDependencies:
       '@ethang/eslint-config':
-        specifier: ^15.0.12
-        version: 15.0.12(@eslint/js@9.1.1)(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.0(eslint@9.1.0))(eslint-plugin-react@7.34.1(eslint@9.1.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.1.0))(eslint-plugin-unicorn@52.0.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5)(typescript-eslint@7.7.0(eslint@9.1.0)(typescript@5.4.5))(typescript@5.4.5)
+        specifier: ^15.0.14
+        version: 15.0.14(@eslint/js@9.1.1)(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.0(eslint@9.1.0))(eslint-plugin-react@7.34.1(eslint@9.1.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.1.0))(eslint-plugin-unicorn@52.0.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5)(typescript-eslint@7.7.0(eslint@9.1.0)(typescript@5.4.5))(typescript@5.4.5)
       '@types/inquirer':
         specifier: ^9.0.7
         version: 9.0.7
@@ -230,11 +230,11 @@ packages:
     resolution: {integrity: sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@15.0.12':
-    resolution: {integrity: sha512-JY+P9jryelvdbQJQWzlka1fR4jmWC9wb/8GXeDeesa/xeyioy6seGQqB9OREI90yUgk1WULxVHbVFsIahh5B1w==}
+  '@ethang/eslint-config@15.0.14':
+    resolution: {integrity: sha512-nantGtjRDG5VL1uSwClxwZCcfcCYJIGMUuI/S8SPvf5SdESKgaamQJIbg/M27qKIokkpisVmiImtlqKFY2TFmg==}
     peerDependencies:
-      '@eslint/js': ^9.0.0
-      eslint: ^9.0.0
+      '@eslint/js': ^9.1.1
+      eslint: ^9.1.0
       eslint-config-prettier: ^9.1.0
       eslint-plugin-prettier: ^5.1.3
       eslint-plugin-react: ^7.34.1
@@ -2041,7 +2041,7 @@ snapshots:
 
   '@eslint/js@9.1.1': {}
 
-  '@ethang/eslint-config@15.0.12(@eslint/js@9.1.1)(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.0(eslint@9.1.0))(eslint-plugin-react@7.34.1(eslint@9.1.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.1.0))(eslint-plugin-unicorn@52.0.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5)(typescript-eslint@7.7.0(eslint@9.1.0)(typescript@5.4.5))(typescript@5.4.5)':
+  '@ethang/eslint-config@15.0.14(@eslint/js@9.1.1)(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.0(eslint@9.1.0))(eslint-plugin-react@7.34.1(eslint@9.1.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.1.0))(eslint-plugin-unicorn@52.0.0(eslint@9.1.0))(eslint@9.1.0)(prettier@3.2.5)(typescript-eslint@7.7.0(eslint@9.1.0)(typescript@5.4.5))(typescript@5.4.5)':
     dependencies:
       '@eslint/js': 9.1.1
       eslint: 9.1.0

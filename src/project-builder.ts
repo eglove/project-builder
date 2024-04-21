@@ -24,7 +24,7 @@ type ProjectBuilderProperties = ReadonlyDeep<{
 export const projectBuilder = async (
   projectName: Readonly<string>,
   branch: Readonly<string>,
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+
   options: ProjectBuilderProperties,
 ) => {
   const {
