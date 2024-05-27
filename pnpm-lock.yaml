@@ -31,8 +31,8 @@ importers:
         version: 5.4.5
     devDependencies:
       '@ethang/eslint-config':
-        specifier: ^16.1.2
-        version: 16.1.2(@eslint/js@9.3.0)(@typescript-eslint/parser@7.10.0(eslint@9.3.0)(typescript@5.4.5))(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-jsx-a11y@6.8.0(eslint@9.3.0))(eslint-plugin-n@17.7.0(eslint@9.3.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.2(eslint@9.3.0))(eslint-plugin-react@7.34.1(eslint@9.3.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.3.0))(eslint-plugin-sonarjs@1.0.3(eslint@9.3.0))(eslint-plugin-unicorn@53.0.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5)(typescript-eslint@7.10.0(eslint@9.3.0)(typescript@5.4.5))(typescript@5.4.5)
+        specifier: ^16.1.3
+        version: 16.1.3(@eslint/js@9.3.0)(@typescript-eslint/parser@7.10.0(eslint@9.3.0)(typescript@5.4.5))(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-jsx-a11y@6.8.0(eslint@9.3.0))(eslint-plugin-n@17.7.0(eslint@9.3.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.2(eslint@9.3.0))(eslint-plugin-react@7.34.1(eslint@9.3.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.3.0))(eslint-plugin-sonarjs@1.0.3(eslint@9.3.0))(eslint-plugin-unicorn@53.0.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5)(typescript-eslint@7.10.0(eslint@9.3.0)(typescript@5.4.5))(typescript@5.4.5)
       '@types/inquirer':
         specifier: ^9.0.7
         version: 9.0.7
@@ -229,8 +229,8 @@ packages:
     resolution: {integrity: sha512-niBqk8iwv96+yuTwjM6bWg8ovzAPF9qkICsGtcoa5/dmqcEMfdwNAX7+/OHcJHc7wj7XqPxH98oAHytFYlw6Sw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@16.1.2':
-    resolution: {integrity: sha512-vDkv6X3UyaNSxpC6kQQwoCI7llJra0BxNAQEtWSKPPhJE+lsPueTfoA2OA1IKPUmBSgX/wYHWjv9bsOWwEw/iw==}
+  '@ethang/eslint-config@16.1.3':
+    resolution: {integrity: sha512-n7epDf7iV8xEPW6jClv+rSxuuek7s+wNINBrt+QkX2/ygLkm05SLqHay8e4NBT4Tfz9jBBVu/0RETWrJQC23JQ==}
     peerDependencies:
       '@eslint/js': ^9.3.0
       '@typescript-eslint/parser': ^7.10.0
@@ -2128,7 +2128,7 @@ snapshots:
 
   '@eslint/js@9.3.0': {}
 
-  '@ethang/eslint-config@16.1.2(@eslint/js@9.3.0)(@typescript-eslint/parser@7.10.0(eslint@9.3.0)(typescript@5.4.5))(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-jsx-a11y@6.8.0(eslint@9.3.0))(eslint-plugin-n@17.7.0(eslint@9.3.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.2(eslint@9.3.0))(eslint-plugin-react@7.34.1(eslint@9.3.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.3.0))(eslint-plugin-sonarjs@1.0.3(eslint@9.3.0))(eslint-plugin-unicorn@53.0.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5)(typescript-eslint@7.10.0(eslint@9.3.0)(typescript@5.4.5))(typescript@5.4.5)':
+  '@ethang/eslint-config@16.1.3(@eslint/js@9.3.0)(@typescript-eslint/parser@7.10.0(eslint@9.3.0)(typescript@5.4.5))(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint-plugin-astro@1.2.0(eslint@9.3.0)(typescript@5.4.5))(eslint-plugin-jsx-a11y@6.8.0(eslint@9.3.0))(eslint-plugin-n@17.7.0(eslint@9.3.0))(eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5))(eslint-plugin-react-hooks@4.6.2(eslint@9.3.0))(eslint-plugin-react@7.34.1(eslint@9.3.0))(eslint-plugin-simple-import-sort@12.1.0(eslint@9.3.0))(eslint-plugin-sonarjs@1.0.3(eslint@9.3.0))(eslint-plugin-unicorn@53.0.0(eslint@9.3.0))(eslint@9.3.0)(prettier@3.2.5)(typescript-eslint@7.10.0(eslint@9.3.0)(typescript@5.4.5))(typescript@5.4.5)':
     dependencies:
       '@eslint/js': 9.3.0
       '@typescript-eslint/parser': 7.10.0(eslint@9.3.0)(typescript@5.4.5)
