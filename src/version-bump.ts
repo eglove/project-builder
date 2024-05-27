@@ -11,21 +11,21 @@ export const scripts = {
   UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
-export const versionBump = async (
+export async function versionBump(
   preVersionBumpScripts: readonly (keyof typeof scripts)[],
   postVersionBumpScripts: readonly (keyof typeof scripts)[],
-) => {
-  if (preVersionBumpScripts.length > 0) {
+) {
+  if (0 < preVersionBumpScripts.length) {
     for (const dependencyScript of preVersionBumpScripts) {
       runCommand(scripts[dependencyScript]);
     }
   }
 
-  if (postVersionBumpScripts.length > 0) {
+  if (0 < postVersionBumpScripts.length) {
     for (const postDependencyScript of postVersionBumpScripts) {
       runCommand(scripts[postDependencyScript]);
     }
   }
 
   await gitUpdate("Version Bump");
-};
+}

@@ -24,7 +24,7 @@ type ProjectBuilderProperties = ReadonlyDeep<{
 export const projectBuilder = async (
   projectName: Readonly<string>,
   branch: Readonly<string>,
-
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   options: ProjectBuilderProperties,
 ) => {
   const {
@@ -39,8 +39,8 @@ export const projectBuilder = async (
 
   console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
-  const git = simpleGit();
-  const status = await git.status();
+  const git = simpleGit(),
+    status = await git.status();
 
   if (!status.isClean()) {
     console.error("Commit your changes!");
@@ -50,7 +50,7 @@ export const projectBuilder = async (
   await git.checkout(branch);
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
 
-  if (isLibrary === true) {
+  if (true === isLibrary) {
     await updatePeerDependencies(ignorePeerDependencies);
 
     if (!isNil(publishDirectory) && !isNil(tsupOptions)) {

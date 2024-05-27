@@ -7,12 +7,11 @@ import { gitUpdate } from "./git-update.ts";
 export const updatePeerDependencies = async (
   ignorePeerDependencies?: readonly string[],
 ) => {
-  const packageJson = fs.readFileSync("package.json", { encoding: "utf8" });
-
-  const packageObject = JSON.parse(packageJson) as {
-    dependencies: Record<string, unknown>;
-    peerDependencies: Record<string, unknown>;
-  };
+  const packageJson = fs.readFileSync("package.json", { encoding: "utf8" }),
+    packageObject = JSON.parse(packageJson) as {
+      dependencies: Record<string, unknown>;
+      peerDependencies: Record<string, unknown>;
+    };
 
   packageObject.peerDependencies = {
     ...packageObject.dependencies,

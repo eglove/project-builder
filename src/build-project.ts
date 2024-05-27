@@ -11,7 +11,7 @@ import { runCommand } from "./run-command.ts";
 // eslint-disable-next-line max-statements
 export const buildProject = async (
   publishDirectory: Readonly<string>,
-
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   tsupOptions: ReadonlyDeep<tsup.Options>,
   tsConfigOverrides?: Readonly<Record<string, unknown>>,
 ) => {
@@ -23,11 +23,13 @@ export const buildProject = async (
     const tsConfigString = fs.readFileSync("tsconfig.json", {
       encoding: "utf8",
     });
+
     const originalTsConfig = JSON.parse(
       tsConfigString,
     ) as typeof tsConfigOverrides;
 
     const merged = merge(originalTsConfig, tsConfigOverrides);
+
     fs.writeFileSync("tsconfig.build.json", JSON.stringify(merged, null, 2));
 
     await gitUpdate("Generate tsConfig");

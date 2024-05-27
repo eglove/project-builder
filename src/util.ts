@@ -5,5 +5,5 @@ export const getHasChanges = async (branch: string): Promise<boolean> => {
     .fetch()
     .diffSummary([`origin/${branch}`]);
 
-  return diffSummary.changed > 0;
+  return 0 < diffSummary.changed;
 };

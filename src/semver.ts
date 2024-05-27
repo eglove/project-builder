@@ -21,7 +21,7 @@ export const semver = async (publishDirectory?: string) => {
     },
   ]);
 
-  if (choice === "no-publish") {
+  if ("no-publish" === choice) {
     return;
   }
 

@@ -12,5 +12,6 @@ export default tseslint.config(...config, {
   rules: {
     "unicorn/prefer-json-parse-buffer": "off",
     "no-console": "off",
+    "no-undef": "off",
   },
 });
