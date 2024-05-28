@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import inquirer from "inquirer";
 import isNil from "lodash/isNil.js";
 import { simpleGit } from "simple-git";
 import type tsup from "tsup";
