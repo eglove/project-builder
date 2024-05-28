@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import inquirer from "inquirer";
 import isNil from "lodash/isNil.js";
 import { simpleGit } from "simple-git";
 import type tsup from "tsup";
@@ -43,8 +44,21 @@ export const projectBuilder = async (
     status = await git.status();
 
   if (!status.isClean()) {
-    console.error("Commit your changes!");
-    return;
+    const { isCommiting } = await inquirer.prompt<{ isCommiting: boolean }>([
+      {
+        message: "Commit your changes?",
+        name: "isCommiting",
+        type: "confirm",
+      },
+    ]);
+
+    if (isCommiting) {
+      await git.add(".");
+      await git.commit("Update Commit");
+    } else {
+      console.error("Make sure to commit before updating.");
+      return;
+    }
   }
 
   await git.checkout(branch);
