@@ -6,6 +6,7 @@ import type tsup from "tsup";
 import type { ReadonlyDeep } from "type-fest";
 
 import { buildProject } from "./build-project.ts";
+import { checkUncommitted } from "./check-uncommitted.js";
 import { semver } from "./semver.ts";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
 import type { scripts } from "./version-bump.ts";
@@ -40,27 +41,9 @@ export const projectBuilder = async (
 
   console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
-  const git = simpleGit(),
-    status = await git.status();
+  await checkUncommitted();
 
-  if (!status.isClean()) {
-    const { isCommiting } = await inquirer.prompt<{ isCommiting: boolean }>([
-      {
-        message: "Commit your changes?",
-        name: "isCommiting",
-        type: "confirm",
-      },
-    ]);
-
-    if (isCommiting) {
-      await git.add(".");
-      await git.commit("Update Commit");
-    } else {
-      console.error("Make sure to commit before updating.");
-      return;
-    }
-  }
-
+  const git = simpleGit();
   await git.checkout(branch);
   await versionBump(preVersionBumpScripts, postVersionBumpScripts);
 
