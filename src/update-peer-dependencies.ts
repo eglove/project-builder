@@ -1,6 +1,5 @@
-import * as fs from "node:fs";
-
 import isNil from "lodash/isNil.js";
+import * as fs from "node:fs";
 
 import { gitUpdate } from "./git-update.ts";
 

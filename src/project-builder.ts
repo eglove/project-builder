@@ -1,15 +1,15 @@
+import type tsup from "tsup";
+import type { ReadonlyDeep } from "type-fest";
+
 import chalk from "chalk";
 import isNil from "lodash/isNil.js";
 import { simpleGit } from "simple-git";
-import type tsup from "tsup";
-import type { ReadonlyDeep } from "type-fest";
 
 import { buildProject } from "./build-project.ts";
 import { checkUncommitted } from "./check-uncommitted.js";
 import { semver } from "./semver.ts";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
-import type { scripts } from "./version-bump.ts";
-import { versionBump } from "./version-bump.ts";
+import { type scripts, versionBump } from "./version-bump.ts";
 
 type ProjectBuilderProperties = ReadonlyDeep<{
   ignorePeerDependencies?: string[];
@@ -29,8 +29,8 @@ export const projectBuilder = async (
   options: ProjectBuilderProperties,
 ) => {
   const {
-    isLibrary,
     ignorePeerDependencies,
+    isLibrary,
     postVersionBumpScripts,
     preVersionBumpScripts,
     publishDirectory,

@@ -1,9 +1,9 @@
-import * as fs from "node:fs";
+import type { ReadonlyDeep } from "type-fest";
 
 import merge from "lodash/merge.js";
+import * as fs from "node:fs";
 import { rimraf } from "rimraf";
 import tsup from "tsup";
-import type { ReadonlyDeep } from "type-fest";
 
 import { gitUpdate } from "./git-update.ts";
 import { runCommand } from "./run-command.ts";

@@ -1,8 +1,7 @@
-import fs from "node:fs";
-
 import chalk from "chalk";
 import inquirer from "inquirer";
 import isNil from "lodash/isNil.js";
+import fs from "node:fs";
 
 import { runCommand } from "./run-command.ts";
 
