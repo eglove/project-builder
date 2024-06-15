@@ -33,7 +33,7 @@
     "inquirer": "^9.2.23",
     "lodash": "^4.17.21",
     "rimraf": "^5.0.7",
-    "simple-git": "^3.24.0",
+    "simple-git": "^3.25.0",
     "tsup": "^8.1.0",
     "typescript": "^5.4.5"
   }
