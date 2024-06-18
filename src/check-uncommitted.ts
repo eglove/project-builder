@@ -18,7 +18,9 @@ export async function checkUncommitted() {
       await git.add(".");
       await git.commit("Update Commit");
     } else {
-      console.error("Make sure to commit before updating.");
+      const message = "Make sure to commit before updating.";
+      console.error(message);
+      throw new Error(message);
     }
   }
 }

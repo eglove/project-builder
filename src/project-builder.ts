@@ -40,7 +40,11 @@ export const projectBuilder = async (
 
   console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
-  await checkUncommitted();
+  try {
+    await checkUncommitted();
+  } catch {
+    return;
+  }
 
   const git = simpleGit();
   await git.checkout(branch);
