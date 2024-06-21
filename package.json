@@ -17,13 +17,13 @@
     "rimraf": "^5.0.7",
     "simple-git": "^3.25.0",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^17.0.9",
+    "@ethang/eslint-config": "^17.0.10",
     "@types/inquirer": "^9.0.7",
     "@types/lodash": "^4.17.5",
-    "@types/node": "^20.14.6",
+    "@types/node": "^20.14.7",
     "eslint": "^9.5.0",
     "type-fest": "^4.20.1",
     "typescript-eslint": "^7.13.1"
