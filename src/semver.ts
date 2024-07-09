@@ -13,6 +13,7 @@ export const semver = async (publishDirectory?: string) => {
   );
   const { choice } = await inquirer.prompt<{ choice: string }>([
     {
+      // @ts-expect-error type mismatch
       choices: ["patch", "minor", "major", "no-publish"],
       message: "SemVer",
       name: "choice",
