@@ -6,6 +6,7 @@ export async function checkUncommitted() {
   const status = await git.status();
 
   if (!status.isClean()) {
+    // @ts-expect-error ignore bad type
     const { isCommiting } = await inquirer.prompt<{ isCommiting: boolean }>([
       {
         message: "Commit your changes?",
@@ -14,7 +15,7 @@ export async function checkUncommitted() {
       },
     ]);
 
-    if (isCommiting) {
+    if (isCommiting as boolean) {
       await git.add(".");
       await git.commit("Update Commit");
     } else {

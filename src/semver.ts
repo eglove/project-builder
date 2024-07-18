@@ -11,9 +11,9 @@ export const semver = async (publishDirectory?: string) => {
       `Publishing dir: ${isNil(publishDirectory) ? "." : publishDirectory}`,
     ),
   );
+  // @ts-expect-error ignore bad type
   const { choice } = await inquirer.prompt<{ choice: string }>([
     {
-      // @ts-expect-error type mismatch
       choices: ["patch", "minor", "major", "no-publish"],
       message: "SemVer",
       name: "choice",
