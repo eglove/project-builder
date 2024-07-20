@@ -31,7 +31,7 @@
   },
   "peerDependencies": {
     "chalk": "^5.3.0",
-    "inquirer": "^10.0.3",
+    "inquirer": "^10.0.4",
     "lodash": "^4.17.21",
     "rimraf": "^6.0.1",
     "simple-git": "^3.25.0",
