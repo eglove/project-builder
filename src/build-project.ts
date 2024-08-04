@@ -1,8 +1,8 @@
 import type { ReadonlyDeep } from "type-fest";
 
+import fsExtra from "fs-extra";
 import merge from "lodash/merge.js";
-import * as fs from "node:fs";
-import { rimraf } from "rimraf";
+import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import tsup from "tsup";
 
 import { gitUpdate } from "./git-update.ts";
@@ -15,12 +15,12 @@ export const buildProject = async (
   tsupOptions: ReadonlyDeep<tsup.Options>,
   tsConfigOverrides?: Readonly<Record<string, unknown>>,
 ) => {
-  await rimraf(publishDirectory);
+  await fsExtra.remove(publishDirectory);
 
   if (tsConfigOverrides === undefined) {
     runCommand(`tsc --project tsconfig.json`);
   } else {
-    const tsConfigString = fs.readFileSync("tsconfig.json", {
+    const tsConfigString = readFileSync("tsconfig.json", {
       encoding: "utf8",
     });
 
@@ -30,7 +30,7 @@ export const buildProject = async (
 
     const merged = merge(originalTsConfig, tsConfigOverrides);
 
-    fs.writeFileSync("tsconfig.build.json", JSON.stringify(merged, null, 2));
+    writeFileSync("tsconfig.build.json", JSON.stringify(merged, null, 2));
 
     await gitUpdate("Generate tsConfig");
 
@@ -45,5 +45,5 @@ export const buildProject = async (
     ...tsupOptions,
   });
 
-  fs.copyFileSync("package.json", `${publishDirectory}/package.json`);
+  copyFileSync("package.json", `${publishDirectory}/package.json`);
 };
