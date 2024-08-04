@@ -2,7 +2,6 @@ import isNil from "lodash/isNil.js";
 import { readFileSync, writeFileSync } from "node:fs";
 
 import { gitUpdate } from "./git-update.ts";
-import { runCommand } from "./run-command.js";
 
 export const updatePeerDependencies = async (
   ignorePeerDependencies?: readonly string[],
@@ -30,6 +29,5 @@ export const updatePeerDependencies = async (
     "utf8",
   );
 
-  runCommand("pnpx update-browserslist-db");
   await gitUpdate("Peer Dependency Update");
 };
