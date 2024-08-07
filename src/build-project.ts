@@ -11,7 +11,6 @@ import { runCommand } from "./run-command.ts";
 // eslint-disable-next-line max-statements,max-lines-per-function
 export const buildProject = async (
   publishDirectory: Readonly<string>,
-
   tsupOptions: ReadonlyDeep<tsup.Options>,
   tsConfigOverrides?: Readonly<Record<string, unknown>>,
 ) => {
