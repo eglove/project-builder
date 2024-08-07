@@ -7,11 +7,11 @@ export async function checkUncommitted () {
 
   if (!status.isClean()) {
     // @ts-expect-error ignore bad type
-    const { isCommiting } = await inquirer.prompt<{ "isCommiting": boolean }>([
+    const { isCommiting } = await inquirer.prompt<{ isCommiting: boolean }>([
       {
-        "message": "Commit your changes?",
-        "name": "isCommiting",
-        "type": "confirm",
+        message: "Commit your changes?",
+        name: "isCommiting",
+        type: "confirm",
       },
     ]);
 

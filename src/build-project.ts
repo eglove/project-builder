@@ -22,7 +22,7 @@ export const buildProject = async (
     const tsConfigString = readFileSync(
       "tsconfig.json",
       {
-        "encoding": "utf8",
+        encoding: "utf8",
       },
     );
 
@@ -50,12 +50,12 @@ export const buildProject = async (
 
   await tsup.build({
     // @ts-expect-error ignore readonly typing
-    "format": [
+    format: [
       "cjs",
       "esm",
     ],
-    "minify": true,
-    "sourcemap": true,
+    minify: true,
+    sourcemap: true,
     ...tsupOptions,
   });
 

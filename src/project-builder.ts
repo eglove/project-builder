@@ -12,13 +12,13 @@ import { updatePeerDependencies } from "./update-peer-dependencies.ts";
 import { type scripts, versionBump } from "./version-bump.ts";
 
 type ProjectBuilderProperties = ReadonlyDeep<{
-  "ignorePeerDependencies"?: string[];
-  "isLibrary"?: boolean;
-  "postVersionBumpScripts": (keyof typeof scripts)[];
-  "preVersionBumpScripts": (keyof typeof scripts)[];
-  "publishDirectory"?: string;
-  "tsConfigOverrides"?: Record<string, unknown>;
-  "tsupOptions"?: tsup.Options;
+  ignorePeerDependencies?: string[];
+  isLibrary?: boolean;
+  postVersionBumpScripts: (keyof typeof scripts)[];
+  preVersionBumpScripts: (keyof typeof scripts)[];
+  publishDirectory?: string;
+  tsConfigOverrides?: Record<string, unknown>;
+  tsupOptions?: tsup.Options;
 }>;
 
 // eslint-disable-next-line max-statements

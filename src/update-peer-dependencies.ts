@@ -8,11 +8,11 @@ export const updatePeerDependencies = async (
 ) => {
   const packageJson = readFileSync(
       "package.json",
-      { "encoding": "utf8" },
+      { encoding: "utf8" },
     ),
     packageObject = JSON.parse(packageJson) as {
-      "dependencies": Record<string, unknown>;
-      "peerDependencies": Record<string, unknown>;
+      dependencies: Record<string, unknown>;
+      peerDependencies: Record<string, unknown>;
     };
 
   packageObject.peerDependencies = {

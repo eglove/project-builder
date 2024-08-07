@@ -6,7 +6,7 @@ export const runCommand = (command: string) => {
   execSync(
     command,
     {
-      "stdio": "inherit",
+      stdio: "inherit",
     },
   );
 };

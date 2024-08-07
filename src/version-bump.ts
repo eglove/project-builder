@@ -2,13 +2,13 @@ import { gitUpdate } from "./git-update.ts";
 import { runCommand } from "./run-command.ts";
 
 export const scripts = {
-  "BUILD": "pnpm build",
-  "DEDUPE": "pnpm dedupe",
-  "LINT": "pnpm lint",
-  "TEST": "pnpm test",
-  "TURBO_CLEAN": "turbo daemon clean",
-  "UPDATE": "pnpm up -i --latest",
-  "UPDATE_RECURSIVE": "pnpm up -i -r --latest",
+  BUILD: "pnpm build",
+  DEDUPE: "pnpm dedupe",
+  LINT: "pnpm lint",
+  TEST: "pnpm test",
+  TURBO_CLEAN: "turbo daemon clean",
+  UPDATE: "pnpm up -i --latest",
+  UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
 function updateBrowsersList (script: keyof typeof scripts) {
