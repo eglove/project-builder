@@ -10,7 +10,7 @@ export const semver = async (publishDirectory?: string) => {
     ? "."
     : publishDirectory}`));
   // @ts-expect-error ignore bad type
-  const {choice} = await inquirer.prompt<{ choice: string }>([
+  const {choice} = await inquirer.prompt<{ choice: string}>([
     {
       "choices": [
         "patch",
