@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import { simpleGit } from "simple-git";
 
-export async function checkUncommitted () {
+export async function checkUncommitted() {
   const git = simpleGit();
   const status = await git.status();
 

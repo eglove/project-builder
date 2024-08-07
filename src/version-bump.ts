@@ -11,13 +11,13 @@ export const scripts = {
   UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
-function updateBrowsersList (script: keyof typeof scripts) {
+function updateBrowsersList(script: keyof typeof scripts) {
   if ("UPDATE" === script || "UPDATE_RECURSIVE" === script) {
     runCommand("pnpx update-browserslist-db");
   }
 }
 
-export async function versionBump (
+export async function versionBump(
   preVersionBumpScripts: readonly (keyof typeof scripts)[],
   postVersionBumpScripts: readonly (keyof typeof scripts)[],
 ) {
