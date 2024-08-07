@@ -3,8 +3,9 @@ import {readFileSync, writeFileSync} from "node:fs";
 
 import {gitUpdate} from "./git-update.ts";
 
-export const updatePeerDependencies = async (ignorePeerDependencies?: readonly string[]) => {
-
+export const updatePeerDependencies = async (
+  ignorePeerDependencies?: readonly string[],
+) => {
   const packageJson = readFileSync(
       "package.json",
       {"encoding": "utf8"},
@@ -20,12 +21,9 @@ export const updatePeerDependencies = async (ignorePeerDependencies?: readonly s
 
   if (!isNil(ignorePeerDependencies)) {
     for (const ignorePeerDependency of ignorePeerDependencies) {
-
       // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete packageObject.peerDependencies[ignorePeerDependency];
-
     }
-
   }
 
   writeFileSync(
@@ -39,5 +37,4 @@ export const updatePeerDependencies = async (ignorePeerDependencies?: readonly s
   );
 
   await gitUpdate("Peer Dependency Update");
-
 };

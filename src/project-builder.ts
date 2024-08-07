@@ -28,7 +28,6 @@ export const projectBuilder = async (
 
   options: ProjectBuilderProperties,
 ) => {
-
   const {
     ignorePeerDependencies,
     isLibrary,
@@ -42,13 +41,9 @@ export const projectBuilder = async (
   console.info(chalk.white.bgBlue(`Running for ${projectName}`));
 
   try {
-
     await checkUncommitted();
-
   } catch {
-
     return;
-
   }
 
   const git = simpleGit();
@@ -59,25 +54,20 @@ export const projectBuilder = async (
   );
 
   if (true === isLibrary) {
-
     await updatePeerDependencies(ignorePeerDependencies);
 
     if (!isNil(publishDirectory) && !isNil(tsupOptions)) {
-
       await buildProject(
         publishDirectory,
         tsupOptions,
         tsConfigOverrides,
       );
-
     }
 
     await semver(publishDirectory);
-
   }
 
   await simpleGit().push();
   const remote = await simpleGit().listRemote(["--get-url"]);
   console.info(chalk.blueBright(remote));
-
 };

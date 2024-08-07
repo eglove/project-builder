@@ -6,7 +6,6 @@ import fs from "node:fs";
 import {runCommand} from "./run-command.ts";
 
 export const semver = async (publishDirectory?: string) => {
-
   console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
     ? "."
     : publishDirectory}`));
@@ -26,25 +25,18 @@ export const semver = async (publishDirectory?: string) => {
   ]);
 
   if ("no-publish" === choice) {
-
     return;
-
   }
 
   runCommand(`npm version ${choice}`);
 
   if (isNil(publishDirectory)) {
-
     runCommand("npm publish --access public");
-
   } else {
-
     fs.copyFileSync(
       "package.json",
       `${publishDirectory}/package.json`,
     );
     runCommand(`cd ${publishDirectory} && npm publish --access public && cd ..`);
-
   }
-
 };

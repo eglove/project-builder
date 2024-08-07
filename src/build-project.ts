@@ -15,15 +15,11 @@ export const buildProject = async (
   tsupOptions: ReadonlyDeep<tsup.Options>,
   tsConfigOverrides?: Readonly<Record<string, unknown>>,
 ) => {
-
   await fsExtra.remove(publishDirectory);
 
   if (tsConfigOverrides === undefined) {
-
     runCommand("tsc --project tsconfig.json");
-
   } else {
-
     const tsConfigString = readFileSync(
       "tsconfig.json",
       {
@@ -50,7 +46,6 @@ export const buildProject = async (
     await gitUpdate("Generate tsConfig");
 
     runCommand("tsc --project tsconfig.build.json");
-
   }
 
   await tsup.build({
@@ -68,5 +63,4 @@ export const buildProject = async (
     "package.json",
     `${publishDirectory}/package.json`,
   );
-
 };
