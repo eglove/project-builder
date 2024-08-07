@@ -7,44 +7,44 @@ import {runCommand} from "./run-command.ts";
 
 export const semver = async (publishDirectory?: string) => {
 
-    console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
-        ? "."
-        : publishDirectory}`));
-    // @ts-expect-error ignore bad type
-    const {choice} = await inquirer.prompt<{ choice: string }>([
-        {
-            "choices": [
-                "patch",
-                "minor",
-                "major",
-                "no-publish",
-            ],
-            "message": "SemVer",
-            "name": "choice",
-            "type": "list",
-        },
-    ]);
+  console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
+    ? "."
+    : publishDirectory}`));
+  // @ts-expect-error ignore bad type
+  const {choice} = await inquirer.prompt<{ choice: string }>([
+    {
+      "choices": [
+        "patch",
+        "minor",
+        "major",
+        "no-publish",
+      ],
+      "message": "SemVer",
+      "name": "choice",
+      "type": "list",
+    },
+  ]);
 
-    if ("no-publish" === choice) {
+  if ("no-publish" === choice) {
 
-        return;
+    return;
 
-    }
+  }
 
-    runCommand(`npm version ${choice}`);
+  runCommand(`npm version ${choice}`);
 
-    if (isNil(publishDirectory)) {
+  if (isNil(publishDirectory)) {
 
-        runCommand("npm publish --access public");
+    runCommand("npm publish --access public");
 
-    } else {
+  } else {
 
-        fs.copyFileSync(
-            "package.json",
-            `${publishDirectory}/package.json`,
-        );
-        runCommand(`cd ${publishDirectory} && npm publish --access public && cd ..`);
+    fs.copyFileSync(
+      "package.json",
+      `${publishDirectory}/package.json`,
+    );
+    runCommand(`cd ${publishDirectory} && npm publish --access public && cd ..`);
 
-    }
+  }
 
 };

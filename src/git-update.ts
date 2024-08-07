@@ -3,16 +3,16 @@ import {simpleGit} from "simple-git";
 
 export const gitUpdate = async (commitMessage: string) => {
 
-    const status = await simpleGit().status();
+  const status = await simpleGit().status();
 
-    if (status.isClean()) {
+  if (status.isClean()) {
 
-        return;
+    return;
 
-    }
+  }
 
-    console.info(chalk.greenBright(`Committing: ${commitMessage}`));
-    await simpleGit().add(".");
-    await simpleGit().commit(commitMessage);
+  console.info(chalk.greenBright(`Committing: ${commitMessage}`));
+  await simpleGit().add(".");
+  await simpleGit().commit(commitMessage);
 
 };

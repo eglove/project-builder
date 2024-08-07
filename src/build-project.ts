@@ -10,63 +10,63 @@ import {runCommand} from "./run-command.ts";
 
 // eslint-disable-next-line max-statements
 export const buildProject = async (
-    publishDirectory: Readonly<string>,
+  publishDirectory: Readonly<string>,
 
-    tsupOptions: ReadonlyDeep<tsup.Options>,
-    tsConfigOverrides?: Readonly<Record<string, unknown>>,
+  tsupOptions: ReadonlyDeep<tsup.Options>,
+  tsConfigOverrides?: Readonly<Record<string, unknown>>,
 ) => {
 
-    await fsExtra.remove(publishDirectory);
+  await fsExtra.remove(publishDirectory);
 
-    if (tsConfigOverrides === undefined) {
+  if (tsConfigOverrides === undefined) {
 
-        runCommand("tsc --project tsconfig.json");
+    runCommand("tsc --project tsconfig.json");
 
-    } else {
+  } else {
 
-        const tsConfigString = readFileSync(
-            "tsconfig.json",
-            {
-                "encoding": "utf8",
-            },
-        );
-
-        const originalTsConfig = JSON.parse(tsConfigString) as typeof tsConfigOverrides;
-
-        const merged = merge(
-            originalTsConfig,
-            tsConfigOverrides,
-        );
-
-        writeFileSync(
-            "tsconfig.build.json",
-            JSON.stringify(
-                merged,
-                null,
-                2,
-            ),
-        );
-
-        await gitUpdate("Generate tsConfig");
-
-        runCommand("tsc --project tsconfig.build.json");
-
-    }
-
-    await tsup.build({
-    // @ts-expect-error ignore readonly typing
-        "format": [
-            "cjs",
-            "esm",
-        ],
-        "minify": true,
-        "sourcemap": true,
-        ...tsupOptions,
-    });
-
-    copyFileSync(
-        "package.json",
-        `${publishDirectory}/package.json`,
+    const tsConfigString = readFileSync(
+      "tsconfig.json",
+      {
+        "encoding": "utf8",
+      },
     );
+
+    const originalTsConfig = JSON.parse(tsConfigString) as typeof tsConfigOverrides;
+
+    const merged = merge(
+      originalTsConfig,
+      tsConfigOverrides,
+    );
+
+    writeFileSync(
+      "tsconfig.build.json",
+      JSON.stringify(
+        merged,
+        null,
+        2,
+      ),
+    );
+
+    await gitUpdate("Generate tsConfig");
+
+    runCommand("tsc --project tsconfig.build.json");
+
+  }
+
+  await tsup.build({
+    // @ts-expect-error ignore readonly typing
+    "format": [
+      "cjs",
+      "esm",
+    ],
+    "minify": true,
+    "sourcemap": true,
+    ...tsupOptions,
+  });
+
+  copyFileSync(
+    "package.json",
+    `${publishDirectory}/package.json`,
+  );
 
 };
