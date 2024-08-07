@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import {simpleGit} from "simple-git";
+import { simpleGit } from "simple-git";
 
 export async function checkUncommitted () {
   const git = simpleGit();
@@ -7,7 +7,7 @@ export async function checkUncommitted () {
 
   if (!status.isClean()) {
     // @ts-expect-error ignore bad type
-    const {isCommiting} = await inquirer.prompt<{ isCommiting: boolean }>([
+    const { isCommiting } = await inquirer.prompt<{ "isCommiting": boolean }>([
       {
         "message": "Commit your changes?",
         "name": "isCommiting",

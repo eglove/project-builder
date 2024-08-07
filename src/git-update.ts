@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import {simpleGit} from "simple-git";
+import { simpleGit } from "simple-git";
 
 export const gitUpdate = async (commitMessage: string) => {
   const status = await simpleGit().status();

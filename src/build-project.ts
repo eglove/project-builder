@@ -1,14 +1,14 @@
-import type {ReadonlyDeep} from "type-fest";
+import type { ReadonlyDeep } from "type-fest";
 
 import fsExtra from "fs-extra";
 import merge from "lodash/merge.js";
-import {copyFileSync, readFileSync, writeFileSync} from "node:fs";
+import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import tsup from "tsup";
 
-import {gitUpdate} from "./git-update.ts";
-import {runCommand} from "./run-command.ts";
+import { gitUpdate } from "./git-update.ts";
+import { runCommand } from "./run-command.ts";
 
-// eslint-disable-next-line max-statements
+// eslint-disable-next-line max-statements,max-lines-per-function
 export const buildProject = async (
   publishDirectory: Readonly<string>,
 
@@ -27,7 +27,8 @@ export const buildProject = async (
       },
     );
 
-    const originalTsConfig = JSON.parse(tsConfigString) as typeof tsConfigOverrides;
+    const originalTsConfig =
+      JSON.parse(tsConfigString) as typeof tsConfigOverrides;
 
     const merged = merge(
       originalTsConfig,

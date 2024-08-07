@@ -1,5 +1,5 @@
-import {gitUpdate} from "./git-update.ts";
-import {runCommand} from "./run-command.ts";
+import { gitUpdate } from "./git-update.ts";
+import { runCommand } from "./run-command.ts";
 
 export const scripts = {
   "BUILD": "pnpm build",

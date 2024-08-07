@@ -3,14 +3,14 @@ import inquirer from "inquirer";
 import isNil from "lodash/isNil.js";
 import fs from "node:fs";
 
-import {runCommand} from "./run-command.ts";
+import { runCommand } from "./run-command.ts";
 
 export const semver = async (publishDirectory?: string) => {
   console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
     ? "."
     : publishDirectory}`));
   // @ts-expect-error ignore bad type
-  const {choice} = await inquirer.prompt<{ choice: string}>([
+  const { choice } = await inquirer.prompt<{ "choice": string }>([
     {
       "choices": [
         "patch",
