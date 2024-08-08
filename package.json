@@ -20,7 +20,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^18.4.8",
+    "@ethang/eslint-config": "^18.4.9",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/lodash": "^4.17.7",
