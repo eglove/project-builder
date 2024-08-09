@@ -5,10 +5,9 @@ import merge from "lodash/merge.js";
 import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import tsup from "tsup";
 
-import { gitUpdate } from "./git-update.ts";
 import { runCommand } from "./run-command.ts";
 
-// eslint-disable-next-line max-statements,max-lines-per-function
+// eslint-disable-next-line max-lines-per-function
 export const buildProject = async (
   publishDirectory: Readonly<string>,
   tsupOptions: ReadonlyDeep<tsup.Options>,
@@ -42,8 +41,6 @@ export const buildProject = async (
         2,
       ),
     );
-
-    await gitUpdate("Generate tsConfig");
 
     runCommand("tsc --project tsconfig.build.json");
   }

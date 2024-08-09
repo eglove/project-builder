@@ -1,4 +1,3 @@
-import { gitUpdate } from "./git-update.ts";
 import { runCommand } from "./run-command.ts";
 
 export const scripts = {
@@ -17,7 +16,7 @@ function updateBrowsersList(script: keyof typeof scripts) {
   }
 }
 
-export async function versionBump(
+export function versionBump(
   preVersionBumpScripts: readonly (keyof typeof scripts)[],
   postVersionBumpScripts: readonly (keyof typeof scripts)[],
 ) {
@@ -34,6 +33,4 @@ export async function versionBump(
       updateBrowsersList(postDependencyScript);
     }
   }
-
-  await gitUpdate("Version Bump");
 }

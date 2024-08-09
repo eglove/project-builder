@@ -1,19 +1,18 @@
 import isNil from "lodash/isNil.js";
 import { readFileSync, writeFileSync } from "node:fs";
 
-import { gitUpdate } from "./git-update.ts";
-
-export const updatePeerDependencies = async (
+export const updatePeerDependencies = (
   ignorePeerDependencies?: readonly string[],
 ) => {
   const packageJson = readFileSync(
-      "package.json",
-      { encoding: "utf8" },
-    ),
-    packageObject = JSON.parse(packageJson) as {
-      dependencies: Record<string, unknown>;
-      peerDependencies: Record<string, unknown>;
-    };
+    "package.json",
+    { encoding: "utf8" },
+  );
+
+  const packageObject = JSON.parse(packageJson) as {
+    dependencies: Record<string, unknown>;
+    peerDependencies: Record<string, unknown>;
+  };
 
   packageObject.peerDependencies = {
     ...packageObject.dependencies,
@@ -35,6 +34,4 @@ export const updatePeerDependencies = async (
     )}\n`,
     "utf8",
   );
-
-  await gitUpdate("Peer Dependency Update");
 };

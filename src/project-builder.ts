@@ -7,6 +7,7 @@ import { simpleGit } from "simple-git";
 
 import { buildProject } from "./build-project.ts";
 import { checkUncommitted } from "./check-uncommitted.js";
+import { gitUpdate } from "./git-update.js";
 import { semver } from "./semver.ts";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
 import { type scripts, versionBump } from "./version-bump.ts";
@@ -25,7 +26,6 @@ type ProjectBuilderProperties = ReadonlyDeep<{
 export const projectBuilder = async (
   projectName: Readonly<string>,
   branch: Readonly<string>,
-
   options: ProjectBuilderProperties,
 ) => {
   const {
@@ -48,13 +48,13 @@ export const projectBuilder = async (
 
   const git = simpleGit();
   await git.checkout(branch);
-  await versionBump(
+  versionBump(
     preVersionBumpScripts,
     postVersionBumpScripts,
   );
 
   if (true === isLibrary) {
-    await updatePeerDependencies(ignorePeerDependencies);
+    updatePeerDependencies(ignorePeerDependencies);
 
     if (!isNil(publishDirectory) && !isNil(tsupOptions)) {
       await buildProject(
@@ -65,9 +65,11 @@ export const projectBuilder = async (
     }
 
     await semver(publishDirectory);
+  } else {
+    await gitUpdate("Dependency Update");
+    await git.push();
   }
 
-  await simpleGit().push();
   const remote = await simpleGit().listRemote(["--get-url"]);
   console.info(chalk.blueBright(remote));
 };
