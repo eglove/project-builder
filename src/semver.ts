@@ -32,7 +32,7 @@ export const semver = async (publishDirectory?: string) => {
   ]);
 
   if ("no-publish" === choice) {
-    await gitUpdate("Just a bot performing minor maintenance.\nhttps://github.com/eglove/project-builder");
+    await gitUpdate(":robot: Beep. Boop. Bot maintenance!\nhttps://github.com/eglove/project-builder");
     await git.push();
     return;
   }

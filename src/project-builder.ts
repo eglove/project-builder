@@ -61,7 +61,7 @@ export const projectBuilder = async (
 
     await semver(publishDirectory);
   } else {
-    await gitUpdate("I'm a bot.\nhttps://github.com/eglove/project-builder");
+    await gitUpdate(":robot: Beep. Boop. I'm a bot.\nhttps://github.com/eglove/project-builder");
     await git.push();
   }
 
