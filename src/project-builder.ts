@@ -7,6 +7,7 @@ import { simpleGit } from "simple-git";
 
 import { buildProject } from "./build-project.ts";
 import { checkUncommitted } from "./check-uncommitted.js";
+import { botMessage } from "./constants.js";
 import { gitUpdate } from "./git-update.js";
 import { semver } from "./semver.ts";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
@@ -61,7 +62,7 @@ export const projectBuilder = async (
 
     await semver(publishDirectory);
   } else {
-    await gitUpdate(":robot: Beep. Boop. I'm a bot.\nhttps://github.com/eglove/project-builder");
+    await gitUpdate(botMessage);
     await git.push();
   }
 

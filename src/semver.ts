@@ -5,6 +5,7 @@ import split from "lodash/split.js";
 import fs, { readFileSync, writeFileSync } from "node:fs";
 import { simpleGit } from "simple-git";
 
+import { botMessage } from "./constants.js";
 import { gitUpdate } from "./git-update.js";
 import { runCommand } from "./run-command.ts";
 
@@ -32,7 +33,7 @@ export const semver = async (publishDirectory?: string) => {
   ]);
 
   if ("no-publish" === choice) {
-    await gitUpdate(":robot: Beep. Boop. I'm a bot.\nhttps://github.com/eglove/project-builder");
+    await gitUpdate(botMessage);
     await git.push();
     return;
   }
