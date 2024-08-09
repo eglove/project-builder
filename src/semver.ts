@@ -55,10 +55,13 @@ export const semver = async (publishDirectory?: string) => {
   switch (choice) {
     case "major": {
       major = String(Number(major) + 1);
+      minor = "0";
+      patch = "0";
       break;
     }
     case "minor": {
       minor = String(Number(minor) + 1);
+      patch = "0";
       break;
     }
     case "patch": {
