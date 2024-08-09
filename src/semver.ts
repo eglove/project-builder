@@ -88,7 +88,7 @@ export const semver = async (publishDirectory?: string) => {
   await git.push();
 
   console.log(chalk.blueBright(newVersion));
-  runCommand("gh release create");
+  runCommand(`gh release create ${newVersion} --generate-notes`);
 
   if (isNil(publishDirectory)) {
     runCommand("npm publish --access public");
