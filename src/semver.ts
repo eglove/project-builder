@@ -86,8 +86,6 @@ export const semver = async (publishDirectory?: string) => {
   const newVersion = `v${major}.${minor}.${patch}`;
   await gitUpdate(newVersion);
   await git.push();
-
-  console.log(chalk.blueBright(newVersion));
   runCommand(`gh release create ${newVersion} --generate-notes`);
 
   if (isNil(publishDirectory)) {
