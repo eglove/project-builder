@@ -15,9 +15,8 @@ import { type scripts, versionBump } from "./version-bump.ts";
 type ProjectBuilderProperties = ReadonlyDeep<{
   ignorePeerDependencies?: string[];
   isLibrary?: boolean;
-  postVersionBumpScripts: (keyof typeof scripts)[];
-  preVersionBumpScripts: (keyof typeof scripts)[];
   publishDirectory?: string;
+  scripts: (keyof typeof scripts)[];
   tsConfigOverrides?: Record<string, unknown>;
   tsupOptions?: tsup.Options;
 }>;
@@ -31,9 +30,8 @@ export const projectBuilder = async (
   const {
     ignorePeerDependencies,
     isLibrary,
-    postVersionBumpScripts,
-    preVersionBumpScripts,
     publishDirectory,
+    scripts,
     tsConfigOverrides,
     tsupOptions,
   } = options;
@@ -48,10 +46,7 @@ export const projectBuilder = async (
 
   const git = simpleGit();
   await git.checkout(branch);
-  versionBump(
-    preVersionBumpScripts,
-    postVersionBumpScripts,
-  );
+  versionBump(scripts);
 
   if (true === isLibrary) {
     updatePeerDependencies(ignorePeerDependencies);

@@ -17,20 +17,12 @@ function updateBrowsersList(script: keyof typeof scripts) {
 }
 
 export function versionBump(
-  preVersionBumpScripts: readonly (keyof typeof scripts)[],
-  postVersionBumpScripts: readonly (keyof typeof scripts)[],
+  userScripts: readonly (keyof typeof scripts)[],
 ) {
-  if (0 < preVersionBumpScripts.length) {
-    for (const dependencyScript of preVersionBumpScripts) {
+  if (0 < userScripts.length) {
+    for (const dependencyScript of userScripts) {
       runCommand(scripts[dependencyScript]);
       updateBrowsersList(dependencyScript);
-    }
-  }
-
-  if (0 < postVersionBumpScripts.length) {
-    for (const postDependencyScript of postVersionBumpScripts) {
-      runCommand(scripts[postDependencyScript]);
-      updateBrowsersList(postDependencyScript);
     }
   }
 }
