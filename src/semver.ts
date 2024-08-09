@@ -12,6 +12,7 @@ const packageJsonString = "package.json";
 
 // eslint-disable-next-line max-lines-per-function,max-statements
 export const semver = async (publishDirectory?: string) => {
+  const git = simpleGit();
   console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
     ? "."
     : publishDirectory}`));
@@ -31,6 +32,8 @@ export const semver = async (publishDirectory?: string) => {
   ]);
 
   if ("no-publish" === choice) {
+    await gitUpdate("Just a bot performing minor maintenance.\nhttps://github.com/eglove/project-builder");
+    await git.push();
     return;
   }
 
@@ -77,7 +80,6 @@ export const semver = async (publishDirectory?: string) => {
   );
 
   const newVersion = `v${major}.${minor}.${patch}`;
-  const git = simpleGit();
   await gitUpdate(newVersion);
   await git.push();
 
