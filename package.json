@@ -20,14 +20,14 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "^18.4.14",
+    "@ethang/eslint-config": "^18.4.15",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.2.0",
     "eslint": "^9.9.0",
     "type-fest": "^4.24.0",
-    "typescript-eslint": "^8.0.1"
+    "typescript-eslint": "^8.1.0"
   },
   "peerDependencies": {
     "chalk": "^5.3.0",
