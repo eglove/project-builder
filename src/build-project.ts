@@ -7,7 +7,7 @@ import tsup from "tsup";
 
 import { runCommand } from "./run-command.ts";
 
-// eslint-disable-next-line max-lines-per-function
+
 export const buildProject = async (
   publishDirectory: Readonly<string>,
   tsupOptions: ReadonlyDeep<tsup.Options>,

@@ -11,7 +11,7 @@ import { runCommand } from "./run-command.ts";
 
 const packageJsonString = "package.json";
 
-// eslint-disable-next-line max-lines-per-function,max-statements
+// eslint-disable-next-line max-statements
 export const semver = async (publishDirectory?: string) => {
   const git = simpleGit();
   console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)

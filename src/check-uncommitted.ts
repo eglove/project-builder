@@ -1,6 +1,6 @@
 import { simpleGit } from "simple-git";
 
-export async function checkUncommitted() {
+export const checkUncommitted = async () => {
   const git = simpleGit();
   const status = await git.status();
 
@@ -9,4 +9,4 @@ export async function checkUncommitted() {
     console.error(message);
     throw new Error(message);
   }
-}
+};
