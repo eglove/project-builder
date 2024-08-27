@@ -31,8 +31,8 @@ importers:
         version: 5.5.4
     devDependencies:
       '@ethang/eslint-config':
-        specifier: ^19.1.1
-        version: 19.1.1(3koytt3e6syscz6d4zhfcjslky)
+        specifier: ^19.2.0
+        version: 19.2.0(3koytt3e6syscz6d4zhfcjslky)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -921,17 +921,17 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@19.1.1':
-    resolution: {integrity: sha512-NitYqWBbJRF01whYACSk3ZOyl+fU887vZJhccBGNLT5EFduhgdaaWWEf16PIcYGycIe9R+vAmP1JuN5dfyUjZQ==}
+  '@ethang/eslint-config@19.2.0':
+    resolution: {integrity: sha512-ci+HFD6j18yUUv74JVWfGOdJtZzYbBul6lpzaZMa4KHkbrYILtE6fKggbnvMqwh2eCOumth8lZ/oQapIzaOptA==}
     engines: {node: '>=20'}
     peerDependencies:
-      '@eslint-react/eslint-plugin': ^1.12.1
+      '@eslint-react/eslint-plugin': ^1.12.2
       '@eslint/js': ^9.9.1
       '@eslint/json': ^0.4.0
       '@eslint/markdown': ^6.0.0
       '@stylistic/eslint-plugin': ^2.6.4
       '@tanstack/eslint-plugin-query': ^5.52.0
-      '@typescript-eslint/parser': ^8.2.0
+      '@typescript-eslint/parser': ^8.3.0
       eslint: ^9.9.1
       eslint-plugin-astro: ^1.2.3
       eslint-plugin-barrel-files: ^2.1.0
@@ -947,7 +947,7 @@ packages:
       eslint-plugin-tailwindcss: ^3.17.4
       eslint-plugin-unicorn: ^55.0.0
       typescript: ^5.5.4
-      typescript-eslint: ^8.2.0
+      typescript-eslint: ^8.3.0
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -4742,7 +4742,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@ethang/eslint-config@19.1.1(3koytt3e6syscz6d4zhfcjslky)':
+  '@ethang/eslint-config@19.2.0(3koytt3e6syscz6d4zhfcjslky)':
     dependencies:
       '@eslint-react/eslint-plugin': 1.12.2(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@eslint/js': 9.9.1
