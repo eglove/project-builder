@@ -10,19 +10,23 @@ export const scripts = {
   UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
-const updateBrowsersList = (script: keyof typeof scripts) => {
+const postInstall = (
+  script: keyof typeof scripts, _postInstall?: () => void,
+) => {
   if ("UPDATE" === script || "UPDATE_RECURSIVE" === script) {
     runCommand("pnpx update-browserslist-db");
+    _postInstall?.();
   }
 };
 
 export const versionBump = (
   userScripts: readonly (keyof typeof scripts)[],
+  _postInstall?: () => void,
 ) => {
   if (0 < userScripts.length) {
     for (const dependencyScript of userScripts) {
       runCommand(scripts[dependencyScript]);
-      updateBrowsersList(dependencyScript);
+      postInstall(dependencyScript, _postInstall);
     }
   }
 };
