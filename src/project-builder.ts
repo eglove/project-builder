@@ -17,7 +17,7 @@ import { type scripts, versionBump } from "./version-bump.ts";
 type ProjectBuilderProperties = ReadonlyDeep<{
   ignorePeerDependencies?: string[];
   isLibrary?: boolean;
-  postInstall?: () => void;
+  postInstall?: () => Promise<void>;
   publishDirectory?: string;
   scripts: (keyof typeof scripts)[];
   tsConfigOverrides?: Record<string, unknown>;
@@ -51,7 +51,7 @@ export const projectBuilder = async (
   const git = simpleGit();
   await git.checkout(branch);
   runCommand("pnpx sort-package-json");
-  versionBump(scripts, postInstall);
+  await versionBump(scripts, postInstall);
 
   if (true === isLibrary) {
     updatePeerDependencies(ignorePeerDependencies);

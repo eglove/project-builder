@@ -10,23 +10,24 @@ export const scripts = {
   UPDATE_RECURSIVE: "pnpm up -i -r --latest",
 };
 
-const postInstall = (
-  script: keyof typeof scripts, _postInstall?: () => void,
+const postInstall = async (
+  script: keyof typeof scripts, _postInstall?: () => Promise<void>,
 ) => {
   if ("UPDATE" === script || "UPDATE_RECURSIVE" === script) {
     runCommand("pnpx update-browserslist-db");
-    _postInstall?.();
+    await _postInstall?.();
   }
 };
 
-export const versionBump = (
+export const versionBump = async (
   userScripts: readonly (keyof typeof scripts)[],
-  _postInstall?: () => void,
+  _postInstall?: () => Promise<void>,
 ) => {
   if (0 < userScripts.length) {
     for (const dependencyScript of userScripts) {
       runCommand(scripts[dependencyScript]);
-      postInstall(dependencyScript, _postInstall);
+      // eslint-disable-next-line no-await-in-loop
+      await postInstall(dependencyScript, _postInstall);
     }
   }
 };
