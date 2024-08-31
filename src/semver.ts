@@ -76,8 +76,8 @@ export const semver = async (publishDirectory?: string) => {
     case "beta": {
       const number = Number(betaVersion);
       betaVersion = Number.isNaN(number)
-        ? "beta.0"
-        : `beta.${number + 1}`;
+        ? "0"
+        : `${number + 1}`;
       break;
     }
   }
