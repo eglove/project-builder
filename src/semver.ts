@@ -52,39 +52,39 @@ export const semver = async (publishDirectory?: string) => {
     throw new Error(`Add version to ${packageJsonString}`);
   }
 
-  let [major, minor, patch, beta] = split(packageObject.version, /[.-]/u);
+  let [major, minor, patch, , betaVersion] = split(packageObject.version, /[.-]/u);
 
   switch (choice) {
     case "major": {
       major = String(Number(major) + 1);
       minor = "0";
       patch = "0";
-      beta = "";
+      betaVersion = "";
       break;
     }
     case "minor": {
       minor = String(Number(minor) + 1);
       patch = "0";
-      beta = "";
+      betaVersion = "";
       break;
     }
     case "patch": {
       patch = String(Number(patch) + 1);
-      beta = "";
+      betaVersion = "";
       break;
     }
     case "beta": {
-      const number = Number(split(beta, ".")[1]);
-      beta = Number.isNaN(number)
-        ? `beta.${number + 1}`
-        : "beta.0";
+      const number = Number(betaVersion);
+      betaVersion = Number.isNaN(number)
+        ? "beta.0"
+        : `beta.${number + 1}`;
       break;
     }
   }
 
-  const betaString = "" === beta
+  const betaString = "" === betaVersion
     ? ""
-    : `-${beta}`;
+    : `-beta.${betaVersion}`;
   packageObject.version = `${[major, minor, patch].join(".")}${betaString}`;
 
   writeFileSync(
