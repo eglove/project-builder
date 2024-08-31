@@ -96,7 +96,7 @@ export const semver = async (publishDirectory?: string) => {
     "utf8",
   );
 
-  const newVersion = `v${major}.${minor}.${patch}`;
+  const newVersion = `v${major}.${minor}.${patch}${betaString}`;
   await gitUpdate(newVersion);
   await git.push();
   runCommand(`gh release create ${newVersion} --generate-notes`);
