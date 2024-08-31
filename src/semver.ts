@@ -21,6 +21,7 @@ export const semver = async (publishDirectory?: string) => {
   const { choice } = await inquirer.prompt<{ choice: string }>([
     {
       choices: [
+        "beta",
         "patch",
         "minor",
         "major",
@@ -51,27 +52,39 @@ export const semver = async (publishDirectory?: string) => {
     throw new Error(`Add version to ${packageJsonString}`);
   }
 
-  let [major, minor, patch] = split(packageObject.version, ".");
+  let [major, minor, patch, beta] = split(packageObject.version, /[.-]/u);
 
   switch (choice) {
     case "major": {
       major = String(Number(major) + 1);
       minor = "0";
       patch = "0";
+      beta = "";
       break;
     }
     case "minor": {
       minor = String(Number(minor) + 1);
       patch = "0";
+      beta = "";
       break;
     }
     case "patch": {
       patch = String(Number(patch) + 1);
+      beta = "";
+      break;
+    }
+    case "beta": {
+      beta = beta
+        ? `beta.${Number(split(beta, ".")[1]) + 1}`
+        : "beta.0";
       break;
     }
   }
 
-  packageObject.version = [major, minor, patch].join(".");
+  const betaString = "" === beta
+    ? ""
+    : `-${beta}`;
+  packageObject.version = `${[major, minor, patch].join(".")}${betaString}`;
 
   writeFileSync(
     packageJsonString,
