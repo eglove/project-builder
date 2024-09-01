@@ -15,16 +15,16 @@
     "fs-extra": "^11.2.0",
     "inquirer": "^10.1.8",
     "lodash": "^4.17.21",
-    "simple-git": "^3.25.0",
+    "simple-git": "^3.26.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "19.2.8",
+    "@ethang/eslint-config": "19.2.10",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/lodash": "^4.17.7",
-    "@types/node": "^22.5.1",
+    "@types/node": "^22.5.2",
     "eslint": "^9.9.1",
     "type-fest": "^4.26.0",
     "typescript-eslint": "^8.3.0"
@@ -34,7 +34,7 @@
     "fs-extra": "^11.2.0",
     "inquirer": "^10.1.8",
     "lodash": "^4.17.21",
-    "simple-git": "^3.25.0",
+    "simple-git": "^3.26.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   }
