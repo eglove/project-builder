@@ -31,8 +31,8 @@ importers:
         version: 5.5.4
     devDependencies:
       '@ethang/eslint-config':
-        specifier: 19.2.7-beta.4
-        version: 19.2.7-beta.4(rw62mxv7hoib3wv7k4bdsosa4e)
+        specifier: 19.2.8
+        version: 19.2.8(kekupsimltiehtz5c2t2o54him)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -921,8 +921,8 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@19.2.7-beta.4':
-    resolution: {integrity: sha512-N7NvcEjpvmWdtyEZsByYo2RGw1OiffgORL6IYPh46XMpuhCG7TK9IsyFROPHBsX1udRsyqL+CUHJLhS0wdwDNg==}
+  '@ethang/eslint-config@19.2.8':
+    resolution: {integrity: sha512-UTzakGFFAhfM2tZCIYY+rJ/RrbdmvW1+ku4y89hhSyCha7eqKVPv18XUxhTBJ60p+x7+ELgosgzwaDVZMKSNDg==}
     engines: {node: '>=20'}
     peerDependencies:
       '@eslint-react/eslint-plugin': ^1.12.4
@@ -943,7 +943,7 @@ packages:
       eslint-plugin-n: ^17.10.2
       eslint-plugin-perfectionist: ^3.3.0
       eslint-plugin-react-hooks: ^4.6.2
-      eslint-plugin-solid: ^0.14.2
+      eslint-plugin-solid: ^0.14.3
       eslint-plugin-sonarjs: 2.0.2
       eslint-plugin-tailwindcss: ^3.17.4
       eslint-plugin-unicorn: ^55.0.0
@@ -2094,9 +2094,9 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-solid@0.14.2:
-    resolution: {integrity: sha512-uyX+/ONsM0IoVBV9EBv7uAhhFXqTfAGd3lxUCNfC+XmJazme1f4UAPhPNbqSfqnzaCbXwB1rsD/9ZpAgO6mzew==}
-    engines: {node: '>=12.0.0'}
+  eslint-plugin-solid@0.14.3:
+    resolution: {integrity: sha512-eDeyPrijSjVGeyb4oKoyidgLlMDZwAg/YdxiY9QvGXl2kLgpcHvLpgpaGK4KJ8xSsg0ym3B2dPRBAIlT7iUrEQ==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
 
@@ -4691,7 +4691,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@ethang/eslint-config@19.2.7-beta.4(rw62mxv7hoib3wv7k4bdsosa4e)':
+  '@ethang/eslint-config@19.2.8(kekupsimltiehtz5c2t2o54him)':
     dependencies:
       '@eslint-react/eslint-plugin': 1.12.4(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@eslint/js': 9.9.1
@@ -4711,7 +4711,7 @@ snapshots:
       eslint-plugin-n: 17.10.2(eslint@9.9.1(jiti@1.21.6))
       eslint-plugin-perfectionist: 3.3.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)(vue-eslint-parser@9.4.3(eslint@9.9.1(jiti@1.21.6)))
       eslint-plugin-react-hooks: 4.6.2(eslint@9.9.1(jiti@1.21.6))
-      eslint-plugin-solid: 0.14.2(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
+      eslint-plugin-solid: 0.14.3(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       eslint-plugin-sonarjs: 2.0.2(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))
       eslint-plugin-tailwindcss: 3.17.4(tailwindcss@3.4.10)
       eslint-plugin-unicorn: 55.0.0(eslint@9.9.1(jiti@1.21.6))
@@ -6138,7 +6138,7 @@ snapshots:
       string.prototype.matchall: 4.0.11
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-solid@0.14.2(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4):
+  eslint-plugin-solid@0.14.3(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4):
     dependencies:
       '@typescript-eslint/utils': 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       eslint: 9.9.1(jiti@1.21.6)
