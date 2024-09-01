@@ -31,8 +31,8 @@ importers:
         version: 5.5.4
     devDependencies:
       '@ethang/eslint-config':
-        specifier: ^19.2.7
-        version: 19.2.7(esn2um6v5a67rsb6nkdipeszja)
+        specifier: 19.2.7-beta.4
+        version: 19.2.7-beta.4(rw62mxv7hoib3wv7k4bdsosa4e)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -921,14 +921,15 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@19.2.7':
-    resolution: {integrity: sha512-QEbG6IimgJpxuREzpopogBHehQXw4Yi8ANGMeKEbSpvpNcP3t+jgxcq27XPZEesIGFAKsUMkgwWU4J8NVwpgXg==}
+  '@ethang/eslint-config@19.2.7-beta.4':
+    resolution: {integrity: sha512-N7NvcEjpvmWdtyEZsByYo2RGw1OiffgORL6IYPh46XMpuhCG7TK9IsyFROPHBsX1udRsyqL+CUHJLhS0wdwDNg==}
     engines: {node: '>=20'}
     peerDependencies:
       '@eslint-react/eslint-plugin': ^1.12.4
       '@eslint/js': ^9.9.1
       '@eslint/json': ^0.4.0
       '@eslint/markdown': ^6.0.0
+      '@ethang/eslint-plugin': ^0.0.6
       '@stylistic/eslint-plugin': ^2.7.2
       '@tanstack/eslint-plugin-query': ^5.53.0
       '@typescript-eslint/parser': ^8.3.0
@@ -948,6 +949,12 @@ packages:
       eslint-plugin-unicorn: ^55.0.0
       typescript: ^5.5.4
       typescript-eslint: ^8.3.0
+
+  '@ethang/eslint-plugin@0.0.6':
+    resolution: {integrity: sha512-Ve8AXWQJhw2zpWJfkUmJ5ouXRDgdLGkSFTPzXaUZzNqVVIMw2LmneQn11yhEJRsud/Fl/nLvi/TnrtKphvGW/A==}
+    peerDependencies:
+      '@typescript-eslint/utils': ^8.3.0
+      lodash: ^4.17.21
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -4684,12 +4691,13 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@ethang/eslint-config@19.2.7(esn2um6v5a67rsb6nkdipeszja)':
+  '@ethang/eslint-config@19.2.7-beta.4(rw62mxv7hoib3wv7k4bdsosa4e)':
     dependencies:
       '@eslint-react/eslint-plugin': 1.12.4(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@eslint/js': 9.9.1
       '@eslint/json': 0.4.0(eslint@9.9.1(jiti@1.21.6))
       '@eslint/markdown': 6.0.0(eslint@9.9.1(jiti@1.21.6))
+      '@ethang/eslint-plugin': 0.0.6(@typescript-eslint/utils@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(lodash@4.17.21)
       '@stylistic/eslint-plugin': 2.7.2(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@tanstack/eslint-plugin-query': 5.53.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@typescript-eslint/parser': 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
@@ -4709,6 +4717,11 @@ snapshots:
       eslint-plugin-unicorn: 55.0.0(eslint@9.9.1(jiti@1.21.6))
       typescript: 5.5.4
       typescript-eslint: 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
+
+  '@ethang/eslint-plugin@0.0.6(@typescript-eslint/utils@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(lodash@4.17.21)':
+    dependencies:
+      '@typescript-eslint/utils': 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
+      lodash: 4.17.21
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
@@ -5043,7 +5056,7 @@ snapshots:
 
   '@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)':
     dependencies:
-      '@eslint-community/regexpp': 4.11.0
+      '@eslint-community/regexpp': 4.10.0
       '@typescript-eslint/parser': 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
       '@typescript-eslint/scope-manager': 7.16.1
       '@typescript-eslint/type-utils': 7.16.1(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
@@ -5143,7 +5156,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.6.3
+      semver: 7.6.0
       ts-api-utils: 1.3.0(typescript@5.5.4)
     optionalDependencies:
       typescript: 5.5.4
@@ -7332,7 +7345,7 @@ snapshots:
 
   refa@0.12.1:
     dependencies:
-      '@eslint-community/regexpp': 4.11.0
+      '@eslint-community/regexpp': 4.10.0
 
   reflect.getprototypeof@1.0.6:
     dependencies:
@@ -7358,7 +7371,7 @@ snapshots:
 
   regexp-ast-analysis@0.7.1:
     dependencies:
-      '@eslint-community/regexpp': 4.11.0
+      '@eslint-community/regexpp': 4.10.0
       refa: 0.12.1
 
   regexp-tree@0.1.27: {}
@@ -7458,7 +7471,7 @@ snapshots:
 
   scslre@0.3.0:
     dependencies:
-      '@eslint-community/regexpp': 4.11.0
+      '@eslint-community/regexpp': 4.10.0
       refa: 0.12.1
       regexp-ast-analysis: 0.7.1
 
@@ -7874,7 +7887,7 @@ snapshots:
       espree: 9.6.1
       esquery: 1.6.0
       lodash: 4.17.21
-      semver: 7.6.3
+      semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
 

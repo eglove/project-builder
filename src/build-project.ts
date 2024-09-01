@@ -1,6 +1,8 @@
 import type { ReadonlyDeep } from "type-fest";
 
 import fsExtra from "fs-extra";
+import attempt from "lodash/attempt.js";
+import isError from "lodash/isError.js";
 import merge from "lodash/merge.js";
 import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import tsup from "tsup";
@@ -8,6 +10,7 @@ import tsup from "tsup";
 import { runCommand } from "./run-command.ts";
 
 
+// eslint-disable-next-line max-statements
 export const buildProject = async (
   publishDirectory: Readonly<string>,
   tsupOptions: ReadonlyDeep<tsup.Options>,
@@ -25,8 +28,11 @@ export const buildProject = async (
       },
     );
 
-    const originalTsConfig =
-      JSON.parse(tsConfigString) as typeof tsConfigOverrides;
+    const originalTsConfig = attempt<string>(JSON.parse, tsConfigString);
+
+    if (isError(originalTsConfig)) {
+      throw new Error("Failed to parse tsconfig");
+    }
 
     const merged = merge(
       originalTsConfig,

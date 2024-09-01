@@ -1,3 +1,5 @@
+import attempt from "lodash/attempt.js";
+import isError from "lodash/isError.js";
 import isNil from "lodash/isNil.js";
 import { readFileSync, writeFileSync } from "node:fs";
 
@@ -9,10 +11,14 @@ export const updatePeerDependencies = (
     { encoding: "utf8" },
   );
 
-  const packageObject = JSON.parse(packageJson) as {
+  const packageObject = attempt<{
     dependencies: Record<string, unknown>;
     peerDependencies: Record<string, unknown>;
-  };
+  }>(JSON.parse, packageJson);
+
+  if (isError(packageObject)) {
+    throw new Error("Failed to parse package.json");
+  }
 
   packageObject.peerDependencies = {
     ...packageObject.dependencies,

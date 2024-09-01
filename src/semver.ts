@@ -1,5 +1,7 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
+import attempt from "lodash/attempt.js";
+import isError from "lodash/isError.js";
 import isNil from "lodash/isNil.js";
 import split from "lodash/split.js";
 import fs, { readFileSync, writeFileSync } from "node:fs";
@@ -44,9 +46,13 @@ export const semver = async (publishDirectory?: string) => {
     { encoding: "utf8" },
   );
 
-  const packageObject = JSON.parse(packageJson) as {
+  const packageObject = attempt<{
     version: string;
-  };
+  }>(JSON.parse, packageJson);
+
+  if (isError(packageObject)) {
+    throw new Error("Failed to parse package.json");
+  }
 
   if (isNil(packageObject.version)) {
     throw new Error(`Add version to ${packageJsonString}`);
