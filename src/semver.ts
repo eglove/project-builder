@@ -19,7 +19,6 @@ export const semver = async (publishDirectory?: string) => {
   console.info(chalk.bgRed.white(`Publishing dir: ${isNil(publishDirectory)
     ? "."
     : publishDirectory}`));
-  // @ts-expect-error ignore bad type
   const { choice } = await inquirer.prompt<{ choice: string }>([
     {
       choices: [
