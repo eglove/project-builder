@@ -7,6 +7,7 @@ await projectBuilder("project-builder", "master", {
   isLibrary: true,
   tsupOptions: {
     outDir: "dist",
-    entry: ["src/*"]
+    entry: ["src/*"],
+    format: ["esm"],
   }
 });
