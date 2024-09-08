@@ -15,8 +15,8 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       inquirer:
-        specifier: ^10.2.1
-        version: 10.2.1
+        specifier: ^10.2.2
+        version: 10.2.2
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -32,7 +32,7 @@ importers:
     devDependencies:
       '@ethang/eslint-config':
         specifier: 19.4.1
-        version: 19.4.1(3wcwb54a67kko4afy72bqz2q7a)
+        version: 19.4.1(ltunwtfgt2v4zdj3m2ce5jnsdi)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -2005,8 +2005,8 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-perfectionist@3.4.0:
-    resolution: {integrity: sha512-vXyd1sFg3H/7aKgBUie62bA6E0EN3Dh0LCD5r4vR/IYtTljxOnyckI1AV0Arw4eYjC/W9T1X04Pl2mdLsdWtMA==}
+  eslint-plugin-perfectionist@3.5.0:
+    resolution: {integrity: sha512-vwDNuxlAlbZJ3DjHo6GnfZrmMlJBLFrkOLBV/rYvVnLFD+x54u9VyJcGOfJ2DK9d1cd3a/C/vtBrbBNgAC6Mrg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       astro-eslint-parser: ^1.0.2
@@ -2394,8 +2394,8 @@ packages:
   inline-style-parser@0.2.3:
     resolution: {integrity: sha512-qlD8YNDqyTKTyuITrDOffsl6Tdhv+UC4hcdAVuQsK4IMQ99nSgd1MIA/Q+jQYoh9r3hVUXhYh7urSRmXPkW04g==}
 
-  inquirer@10.2.1:
-    resolution: {integrity: sha512-PRbdiiTMlHlnrXyVBlYi6wv21emJszaiuZJ8wjC4/7JpqzgbMC96pjIgi/6zZkzRCjGgUMwUTdVayn2zaRRkVA==}
+  inquirer@10.2.2:
+    resolution: {integrity: sha512-tyao/4Vo36XnUItZ7DnUXX4f1jVao2mSrleV/5IPtW/XAEA26hRVsbc68nuTEKWcr5vMP/1mVoT2O7u8H4v1Vg==}
     engines: {node: '>=18'}
 
   internal-slot@1.0.7:
@@ -4700,7 +4700,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@ethang/eslint-config@19.4.1(3wcwb54a67kko4afy72bqz2q7a)':
+  '@ethang/eslint-config@19.4.1(ltunwtfgt2v4zdj3m2ce5jnsdi)':
     dependencies:
       '@eslint-react/eslint-plugin': 1.13.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)
       '@eslint/js': 9.10.0
@@ -4718,7 +4718,7 @@ snapshots:
       eslint-plugin-jsx-a11y: 6.10.0(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-lodash: 8.0.0(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-n: 17.10.2(eslint@9.10.0(jiti@1.21.6))
-      eslint-plugin-perfectionist: 3.4.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)(vue-eslint-parser@9.4.3(eslint@9.10.0(jiti@1.21.6)))
+      eslint-plugin-perfectionist: 3.5.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)(vue-eslint-parser@9.4.3(eslint@9.10.0(jiti@1.21.6)))
       eslint-plugin-react-hooks: 4.6.2(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-solid: 0.14.3(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)
       eslint-plugin-sonarjs: 2.0.2(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))
@@ -5984,7 +5984,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.6.3
 
-  eslint-plugin-perfectionist@3.4.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)(vue-eslint-parser@9.4.3(eslint@9.10.0(jiti@1.21.6))):
+  eslint-plugin-perfectionist@3.5.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)(vue-eslint-parser@9.4.3(eslint@9.10.0(jiti@1.21.6))):
     dependencies:
       '@typescript-eslint/types': 8.4.0
       '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)
@@ -6520,8 +6520,9 @@ snapshots:
 
   inline-style-parser@0.2.3: {}
 
-  inquirer@10.2.1:
+  inquirer@10.2.2:
     dependencies:
+      '@inquirer/core': 9.1.0
       '@inquirer/prompts': 5.5.0
       '@inquirer/type': 1.5.3
       '@types/mute-stream': 0.0.4
