@@ -11,6 +11,7 @@ import { botMessage } from "./constants.js";
 import { gitUpdate } from "./git-update.js";
 import { runCommand } from "./run-command.js";
 import { semver } from "./semver.ts";
+import { sortPackageJson } from "./sort-package-json.js";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
 import { type scripts, versionBump } from "./version-bump.ts";
 
@@ -50,7 +51,7 @@ export const projectBuilder = async (
 
   const git = simpleGit();
   await git.checkout(branch);
-  runCommand("pnpx sort-package-json");
+  sortPackageJson();
   await versionBump(scripts, postInstall);
 
   if (true === isLibrary) {
