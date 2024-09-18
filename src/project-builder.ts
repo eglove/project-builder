@@ -9,7 +9,6 @@ import { buildProject } from "./build-project.ts";
 import { checkUncommitted } from "./check-uncommitted.js";
 import { botMessage } from "./constants.js";
 import { gitUpdate } from "./git-update.js";
-import { runCommand } from "./run-command.js";
 import { semver } from "./semver.ts";
 import { sortPackageJson } from "./sort-package-json.js";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
