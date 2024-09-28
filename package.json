@@ -1,6 +1,6 @@
 {
   "name": "@ethang/project-builder",
-  "version": "2.6.1",
+  "version": "3.0.0",
   "description": "",
   "license": "ISC",
   "author": "Ethan Glover",
@@ -14,7 +14,7 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "fs-extra": "^11.2.0",
-    "inquirer": "^11.0.2",
+    "inquirer": "^11.1.0",
     "lodash": "^4.17.21",
     "simple-git": "^3.27.0",
     "sort-package-json": "^2.10.1",
@@ -22,11 +22,11 @@
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@ethang/eslint-config": "19.8.7",
+    "@ethang/eslint-config": "19.8.8",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/lodash": "^4.17.9",
-    "@types/node": "^22.7.3",
+    "@types/node": "^22.7.4",
     "eslint": "^9.11.1",
     "type-fest": "^4.26.1",
     "typescript-eslint": "^8.7.0"
@@ -34,7 +34,7 @@
   "peerDependencies": {
     "chalk": "^5.3.0",
     "fs-extra": "^11.2.0",
-    "inquirer": "^11.0.2",
+    "inquirer": "^11.1.0",
     "lodash": "^4.17.21",
     "simple-git": "^3.27.0",
     "sort-package-json": "^2.10.1",
