@@ -9,17 +9,16 @@ import { buildProject } from "./build-project.ts";
 import { checkUncommitted } from "./check-uncommitted.js";
 import { botMessage } from "./constants.js";
 import { gitUpdate } from "./git-update.js";
+import { runUserScripts } from "./run-user-scripts.ts";
 import { semver } from "./semver.ts";
 import { sortPackageJson } from "./sort-package-json.js";
 import { updatePeerDependencies } from "./update-peer-dependencies.ts";
-import { type scripts, versionBump } from "./version-bump.ts";
 
 type ProjectBuilderProperties = ReadonlyDeep<{
   ignorePeerDependencies?: string[];
   isLibrary?: boolean;
-  postInstall?: () => Promise<void>;
   publishDirectory?: string;
-  scripts: (keyof typeof scripts)[];
+  scripts: string[];
   tsConfigOverrides?: Record<string, unknown>;
   tsupOptions?: tsup.Options;
 }>;
@@ -33,7 +32,6 @@ export const projectBuilder = async (
   const {
     ignorePeerDependencies,
     isLibrary,
-    postInstall,
     publishDirectory,
     scripts,
     tsConfigOverrides,
@@ -51,7 +49,7 @@ export const projectBuilder = async (
   const git = simpleGit();
   await git.checkout(branch);
   sortPackageJson();
-  await versionBump(scripts, postInstall);
+  runUserScripts(scripts);
 
   if (true === isLibrary) {
     updatePeerDependencies(ignorePeerDependencies);
