@@ -9,7 +9,6 @@ import tsup from "tsup";
 
 import { runCommand } from "./run-command.ts";
 
-
 // eslint-disable-next-line max-statements
 export const buildProject = async (
   publishDirectory: Readonly<string>,
