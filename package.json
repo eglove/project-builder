@@ -1,6 +1,6 @@
 {
   "name": "@ethang/project-builder",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "license": "ISC",
   "author": "Ethan Glover",
@@ -14,7 +14,7 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "fs-extra": "^11.2.0",
-    "inquirer": "^11.1.0",
+    "inquirer": "^12.0.0",
     "lodash": "^4.17.21",
     "simple-git": "^3.27.0",
     "sort-package-json": "^2.10.1",
@@ -34,7 +34,7 @@
   "peerDependencies": {
     "chalk": "^5.3.0",
     "fs-extra": "^11.2.0",
-    "inquirer": "^11.1.0",
+    "inquirer": "^12.0.0",
     "lodash": "^4.17.21",
     "simple-git": "^3.27.0",
     "sort-package-json": "^2.10.1",
