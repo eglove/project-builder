@@ -4,6 +4,7 @@ import { projectBuilder } from "./dist/project-builder.js";
 await projectBuilder("project-builder", "master", {
   scripts: [
     "pnpm up -i --latest",
+    "pnpm dedupe",
     "pnpm lint",
   ],
   publishDirectory: "dist",
