@@ -34,8 +34,8 @@ importers:
         version: 5.6.3
     devDependencies:
       '@ethang/eslint-config':
-        specifier: 19.14.8
-        version: 19.14.8(5cldxjfljizeoxdltjiyxp2zeu)
+        specifier: 19.14.9
+        version: 19.14.9(5cldxjfljizeoxdltjiyxp2zeu)
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -1163,9 +1163,9 @@ packages:
     resolution: {integrity: sha512-CXtq5nR4Su+2I47WPOlWud98Y5Lv8Kyxp2ukhgFx/eW6Blm18VXJO5WuQylPugRo8nbluoi6GvvxBLqHcvqUUw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ethang/eslint-config@19.14.8':
-    resolution: {integrity: sha512-xLOuO/0ukXZISYlsKdL24Run4Rm5yv8zisiQGWalsN4h/ogn4KSHE+gLFY87q63v9egf/UkGJi8jpEwnDgOX4Q==}
-    engines: {node: '>=20'}
+  '@ethang/eslint-config@19.14.9':
+    resolution: {integrity: sha512-bwDIvMcoBi031lYx0u8S1R3mNfpZFU+YxPO0U8of3/GAKRn4cSqeqXFxmMnGrl/IHr7V1rWRyj8RpSH5ReUBKA==}
+    engines: {node: '>=22'}
     peerDependencies:
       '@cspell/eslint-plugin': ^8.15.7
       '@eslint-react/eslint-plugin': ^1.15.2
@@ -1179,7 +1179,7 @@ packages:
       '@tanstack/eslint-plugin-router': ^1.79.0
       '@typescript-eslint/parser': ^8.13.0
       eslint: ^9.14.0
-      eslint-plugin-astro: ^1.3.0
+      eslint-plugin-astro: ^1.3.1
       eslint-plugin-barrel-files: ^2.1.0
       eslint-plugin-compat: ^6.0.1
       eslint-plugin-depend: ^0.12.0
@@ -5331,7 +5331,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@ethang/eslint-config@19.14.8(5cldxjfljizeoxdltjiyxp2zeu)':
+  '@ethang/eslint-config@19.14.9(5cldxjfljizeoxdltjiyxp2zeu)':
     dependencies:
       '@cspell/eslint-plugin': 8.14.4(eslint@9.14.0(jiti@2.3.1))
       '@eslint-react/eslint-plugin': 1.14.3(eslint@9.14.0(jiti@2.3.1))(typescript@5.6.3)
